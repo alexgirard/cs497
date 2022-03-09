@@ -1,3 +1,7 @@
+# CS497
+Airtable + Next.js tutorial: https://www.section.io/engineering-education/integrate-airtable-with-nextjs/
+
+# Next.js
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
