@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ItemsContext } from '../context/items';
 
-function Item({ item }) {
+const Item = ({ item }) => {
   // for updating and deleting item
   const { updateItem, deleteItem } = useContext(ItemsContext);
 
@@ -15,9 +15,7 @@ function Item({ item }) {
 
   return (
     <li className="flex items-center d-flex rounded-lg my-2 py-2 px-4">
-      <p className="flex-1 text-gray-800 mx-2">
-        {item?.fields?.name}
-      </p>
+      <p className="flex-1 text-gray-800 mx-2">{item?.fields?.name}</p>
       {/* delete item when the delete button is clicked */}
       <button
         type="button"
@@ -28,6 +26,6 @@ function Item({ item }) {
       </button>
     </li>
   );
-}
+};
 
 export default Item;

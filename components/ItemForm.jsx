@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { ItemsContext } from '../context/items';
 
-function ItemForm() {
+const ItemForm = () => {
   const [item, setItem] = useState('');
   const { addItem } = useContext(ItemsContext);
 
@@ -31,6 +31,6 @@ function ItemForm() {
       </div>
     </form>
   );
-}
+};
 
 export default ItemForm;
