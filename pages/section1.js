@@ -26,9 +26,9 @@ export default function Section1() {
 
       <main className={styles.main}>
       <Grid container spacing={2}>
-        <Grid item xs={1}>
-            <IconButton aria-label="previous question" onClick={previousQuestion} disabled={questionCounter <= 1} size="large">
-                <KeyboardArrowLeftIcon />
+        <Grid item xs={1} style={{justifyContent:"center"}}>
+            <IconButton aria-label="previous question" onClick={previousQuestion} disabled={questionCounter <= 1} size="large" color="primary">
+                <KeyboardArrowLeftIcon fontSize="inherit" />
             </IconButton>
         </Grid>
         <Grid item xs={10}>
@@ -43,8 +43,8 @@ export default function Section1() {
         </Slide>
         </Grid>
         <Grid item xs={1}>
-            <IconButton aria-label="next question" onClick={nextQuestion} disabled={questionCounter >= 3} size="large">
-                <KeyboardArrowRightIcon />
+            <IconButton aria-label="next question" onClick={nextQuestion} disabled={questionCounter >= 3} size="large" color="primary">
+                <KeyboardArrowRightIcon fontSize="inherit"/>
             </IconButton>
         </Grid>
         </Grid>
