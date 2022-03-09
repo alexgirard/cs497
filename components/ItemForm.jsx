@@ -1,14 +1,14 @@
-import React, { useState, useContext } from "react";
-import { ItemsContext } from "../context/items";
+import React, { useState, useContext } from 'react';
+import { ItemsContext } from '../context/items';
 
-const ItemForm = () => {
-  const [item, setItem] = useState("");
+function ItemForm() {
+  const [item, setItem] = useState('');
   const { addItem } = useContext(ItemsContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addItem({ name: item });
-    setItem("");
+    setItem('');
   };
 
   return (
@@ -31,6 +31,6 @@ const ItemForm = () => {
       </div>
     </form>
   );
-};
+}
 
 export default ItemForm;

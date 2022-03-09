@@ -1,11 +1,12 @@
-import React, { useContext } from "react";
-import { ItemsContext } from "../context/items";
+import React, { useContext } from 'react';
+import { ItemsContext } from '../context/items';
 
-const Item = ({ item }) => {
+function Item({ item }) {
   // for updating and deleting item
   const { updateItem, deleteItem } = useContext(ItemsContext);
 
   // Update the record when the checkbox is checked
+  // eslint-disable-next-line no-unused-vars
   const handleCompleted = () => {
     const updatedFields = { ...item?.fields };
     const updatedItem = { id: item?.id, fields: updatedFields };
@@ -17,7 +18,7 @@ const Item = ({ item }) => {
       <p className="flex-1 text-gray-800 mx-2">
         {item?.fields?.name}
       </p>
-      {/* delete item when the delete button is clicked*/}
+      {/* delete item when the delete button is clicked */}
       <button
         type="button"
         className="text-sm bg-red-500 hover:bg-red-700 py-1 px-2 rounded"
@@ -27,6 +28,6 @@ const Item = ({ item }) => {
       </button>
     </li>
   );
-};
+}
 
 export default Item;
