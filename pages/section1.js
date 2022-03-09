@@ -13,9 +13,9 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export default function Section1() {
     const [questionCounter, _setQuestionCounter] = useState(1);
-    const [appearFromLeft, setAppearFromLeft] = useState(true);
-    const nextQuestion = () => {_setQuestionCounter(questionCounter + 1); setAppearFromLeft(true)}
-    const previousQuestion = () => {_setQuestionCounter(questionCounter - 1); setAppearFromLeft(false)}
+    const [appearFromLeft, setAppearFromLeft] = useState(false);
+    const nextQuestion = () => {_setQuestionCounter(questionCounter + 1); setAppearFromLeft(false)}
+    const previousQuestion = () => {_setQuestionCounter(questionCounter - 1); setAppearFromLeft(true)}
 
   return (
     <div className={styles.container}>
@@ -34,13 +34,13 @@ export default function Section1() {
         </Grid>
         <Grid item xs={10}>
             <Container>
-        <Slide left={appearFromLeft} right={!appearFromLeft} opposite collapse when={questionCounter == 1}>
+        <Slide left={appearFromLeft} right={!appearFromLeft} opposite collapse when={questionCounter == 1} unmountOnExit mountOnEnter>
             <Q1/>
         </Slide>
-        <Slide left={appearFromLeft} right={!appearFromLeft}  opposite collapse when={questionCounter == 2}>
+        <Slide left={appearFromLeft} right={!appearFromLeft}  opposite collapse when={questionCounter == 2} unmountOnExit mountOnEnter>
             <Q2/>
         </Slide>
-        <Slide left={appearFromLeft} right={!appearFromLeft}  opposite collapse when={questionCounter == 3}>
+        <Slide left={appearFromLeft} right={!appearFromLeft}  opposite collapse when={questionCounter == 3}unmountOnExit mountOnEnter>
             <Q3/>
         </Slide>
         </Container>
