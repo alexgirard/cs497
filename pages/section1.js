@@ -7,6 +7,7 @@ import Slide from 'react-reveal/Slide';
 import {useState} from 'react'
 import IconButton from '@mui/material/IconButton';
 import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
@@ -32,6 +33,7 @@ export default function Section1() {
             </IconButton>
         </Grid>
         <Grid item xs={10}>
+            <Container>
         <Slide left={appearFromLeft} right={!appearFromLeft} opposite collapse when={questionCounter == 1}>
             <Q1/>
         </Slide>
@@ -41,6 +43,7 @@ export default function Section1() {
         <Slide left={appearFromLeft} right={!appearFromLeft}  opposite collapse when={questionCounter == 3}>
             <Q3/>
         </Slide>
+        </Container>
         </Grid>
         <Grid item xs={1}>
             <IconButton aria-label="next question" onClick={nextQuestion} disabled={questionCounter >= 3} size="large" color="primary">
