@@ -25,6 +25,7 @@
         "react/jsx-props-no-spreading": 0,
         "react/function-component-definition": 0,
         "prettier/prettier": ["error", { "singleQuote": true }],
-        "quotes": ["error", "single", { "avoidEscape": true }]
+        "quotes": ["error", "single", { "avoidEscape": true }],
+        "react/no-unescaped-entities": 0
     }
 }
