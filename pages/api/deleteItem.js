@@ -1,4 +1,4 @@
-import { table, getMinifiedItem } from "../../utils/Airtable";
+import { table } from '../../utils/Airtable';
 
 // takes an array of up to 10 record objects
 export default async (req, res) => {
@@ -8,6 +8,6 @@ export default async (req, res) => {
     res.status(200).json(deletedRecords);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ msg: "Something went wrong! 😕" });
+    res.status(500).json({ msg: 'Something went wrong! 😕' });
   }
 };

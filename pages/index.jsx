@@ -1,12 +1,11 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect } from 'react';
 
-import styles from '../styles/Home.module.css';
+// import styles from '../styles/Home.module.css';
 import { table, minifyItems } from '../utils/Airtable';
-import { ItemsContext } from "../context/items";
-import Item from "../components/Item";
-import ItemForm from "../components/ItemForm";
+import { ItemsContext } from '../context/items';
+import Item from '../components/Item';
+import ItemForm from '../components/ItemForm';
 
 export default function Home({ initialItems }) {
   const { items, setItems } = useContext(ItemsContext);
@@ -30,9 +29,9 @@ export default function Home({ initialItems }) {
       </main>
     </div>
   );
-};
+}
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   try {
     const items = await table.select({}).firstPage();
     return {
@@ -44,8 +43,8 @@ export async function getServerSideProps(context) {
     console.log(error);
     return {
       props: {
-        err: "Something went wrong 😕",
+        err: 'Something went wrong 😕',
       },
     };
   }
-};
+}
