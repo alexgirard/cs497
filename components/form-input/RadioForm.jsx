@@ -9,12 +9,12 @@ import { ItemsContext } from '../../context/items';
 
 export const RadioForm = ({ children, title, item, fieldName }) => {
   const { updateItem } = useContext(ItemsContext);
-  
+
   const [value, setValue] = React.useState(null);
-  useEffect(() =>{
+  useEffect(() => {
     // Runs only the first time item variable gets set from undefined
-    setValue(item?.fields[fieldName])
-  }, [item]) 
+    setValue(item?.fields[fieldName]);
+  }, [item]);
 
   const handleChange = (event) => {
     setValue(event.target.value);
