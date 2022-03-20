@@ -104,7 +104,8 @@ export default function Section1({ initialItems }) {
                 unmountOnExit
                 mountOnEnter
               >
-                <Q3 />
+                {/* TODO: Pass in correct corresponding item */}
+                <Q3 item={items ? items[0] : undefined} />
               </Slide>
             </Container>
           </Grid>
