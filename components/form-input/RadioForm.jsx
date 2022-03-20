@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -9,9 +9,12 @@ import { ItemsContext } from '../../context/items';
 
 export const RadioForm = ({ children, title, item, fieldName }) => {
   const { updateItem } = useContext(ItemsContext);
-
-  // TODO: figure out initial state from Airtable
+  
   const [value, setValue] = React.useState(null);
+  useEffect(() =>{
+    // Runs only the first time item variable gets set from undefined
+    setValue(item?.fields[fieldName])
+  }, [item]) 
 
   const handleChange = (event) => {
     setValue(event.target.value);
