@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Head from 'next/head';
 import Slide from 'react-reveal/Slide';
 import IconButton from '@mui/material/IconButton';
@@ -10,8 +10,34 @@ import Q3 from '../components/q3';
 import Q2 from '../components/q2';
 import Q1 from '../components/q1';
 import styles from '../styles/Home.module.css';
+import { table, minifyItems } from '../utils/Airtable';
+import { ItemsContext } from '../context/items';
 
-export default function Section1() {
+export async function getServerSideProps() {
+  try {
+    const items = await table.select({}).firstPage();
+    return {
+      props: {
+        initialItems: minifyItems(items),
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {
+        err: 'Something went wrong 😕',
+      },
+    };
+  }
+}
+
+export default function Section1({ initialItems }) {
+  const { items, setItems } = useContext(ItemsContext);
+
+  useEffect(() => {
+    setItems(initialItems);
+  }, [initialItems, setItems]);
+
   const [questionCounter, _setQuestionCounter] = useState(1);
   const [appearFromLeft, setAppearFromLeft] = useState(false);
   const nextQuestion = () => {
@@ -55,7 +81,8 @@ export default function Section1() {
                 unmountOnExit
                 mountOnEnter
               >
-                <Q1 />
+                {/* TODO: Pass in correct corresponding item */}
+                <Q1 item={items ? items[0] : undefined} />
               </Slide>
               <Slide
                 left={appearFromLeft}
