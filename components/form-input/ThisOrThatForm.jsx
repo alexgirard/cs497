@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import FormLabel from '@mui/material/FormLabel';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { ItemsContext } from '../../context/items';
 
 export const ThisOrThatOption = ({ children }) => (
   <Container
@@ -25,9 +26,22 @@ export const ThisOrThatOption = ({ children }) => (
   </Container>
 );
 
-export function ThisOrThatForm({ title, children }) {
+export function ThisOrThatForm({ title, children, item, fieldName }) {
+  const { updateItem } = useContext(ItemsContext);
+
   const [selected, setSelected] = React.useState(null);
+  useEffect(() => {
+    // Runs only the first time item variable gets set from undefined
+    // Set initial state from Airtable
+    setSelected(item?.fields[fieldName]);
+  }, [item]);
+
   const handleToggle = (_, newSelected) => {
+    const updatedFields = { ...item?.fields };
+    updatedFields[fieldName] = newSelected;
+    const updatedItem = { id: item?.id, fields: updatedFields };
+    updateItem(updatedItem);
+
     setSelected(newSelected);
   };
 
