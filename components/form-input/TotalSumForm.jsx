@@ -1,4 +1,4 @@
-import React, { useState, cloneElement } from 'react';
+import React, { useState, cloneElement, useContext, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
@@ -8,6 +8,17 @@ import FormLabel from '@mui/material/FormLabel';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { blue } from '@mui/material/colors';
+import { ItemsContext } from '../../context/items';
+
+const stateObjectToString = (statesContainer, counterIndex, updatedCount) => {
+  const updatedState = {};
+  Object.keys(statesContainer).forEach((key) => {
+    const [count] = statesContainer[key];
+    const countState = key === String(counterIndex) ? updatedCount : count;
+    updatedState[key] = countState;
+  });
+  return JSON.stringify(updatedState);
+};
 
 export const CounterButton = ({
   label,
@@ -52,11 +63,28 @@ export const CounterButton = ({
   </Box>
 );
 
-export function TotalSumForm({ title, children, total }) {
+export function TotalSumForm({ item, title, children, total, fieldName }) {
+  const { updateItem } = useContext(ItemsContext);
+
   const counterStates = {};
   children.forEach((_, index) => {
-    counterStates[index] = useState(0);
+    const [counter, _setCounter] = useState(0);
+    const setCounter = (val) => {
+      _setCounter(val);
+    };
+    counterStates[index] = [counter, setCounter];
   });
+
+  useEffect(() => {
+    // Runs only the first time item variable gets set from undefined
+    // Set initial state from Airtable
+    const stateString = item?.fields[fieldName] ?? '{}';
+    const stateObject = JSON.parse(stateString);
+    Object.keys(counterStates).forEach((key) => {
+      const [, setCounter] = counterStates[key];
+      setCounter(stateObject[key]);
+    });
+  }, [item]);
 
   const reachedSum = () => {
     let counterSum = 0;
@@ -66,6 +94,20 @@ export function TotalSumForm({ title, children, total }) {
     return counterSum >= total;
   };
 
+  const onCounterChange = (counterIndex, updatedCount) => {
+    const updatedFields = { ...item?.fields };
+    updatedFields[fieldName] = stateObjectToString(
+      counterStates,
+      counterIndex,
+      updatedCount
+    );
+    const updatedItem = { id: item?.id, fields: updatedFields };
+    updateItem(updatedItem);
+
+    const [, setCounter] = counterStates[counterIndex];
+    setCounter(updatedCount);
+  };
+
   return (
     <Container sx={{ p: 4 }}>
       <FormLabel>{title}</FormLabel>
@@ -73,7 +115,7 @@ export function TotalSumForm({ title, children, total }) {
         {children.map((child, childIndex) => (
           <Grid item xs={6} md={6} key={child.props.id}>
             {cloneElement(child, {
-              setCounter: counterStates[childIndex][1],
+              setCounter: (val) => onCounterChange(childIndex, val),
               counter: counterStates[childIndex][0],
               disableIncrement: reachedSum(),
             })}

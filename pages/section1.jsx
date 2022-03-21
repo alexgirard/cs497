@@ -93,7 +93,8 @@ export default function Section1({ initialItems }) {
                 unmountOnExit
                 mountOnEnter
               >
-                <Q2 />
+                {/* TODO: Pass in correct corresponding item */}
+                <Q2 item={items ? items[0] : undefined} />
               </Slide>
               <Slide
                 left={appearFromLeft}
