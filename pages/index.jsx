@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import React, { useContext, useEffect } from 'react';
 
 // import styles from '../styles/Home.module.css';
@@ -16,10 +15,6 @@ export default function Home({ initialItems }) {
 
   return (
     <div className="container mx-auto my-6 max-w-xl">
-      <Head>
-        <title>@Grocery List</title>
-      </Head>
-
       <main>
         <p className="text-2xl font-bold py-2">🛒 Grocery List</p>
         <ItemForm />
