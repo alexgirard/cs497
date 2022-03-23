@@ -14,7 +14,11 @@ export default function Q1({ item }) {
         <RadioOption value="2" label="I'm another option wow!!" />
         <RadioOption value="3" label="ethics is very important" />
       </RadioForm>
-      <ThisOrThatForm title="This is a title! Say something like Choose which one is better">
+      <ThisOrThatForm
+        title="This is a title! Say something like Choose which one is better"
+        item={item}
+        fieldName="q1"
+      >
         <ThisOrThatOption>
           Here is a this or that option!! Here is a this or that option!! Here
           is a this or that option!!
@@ -30,7 +34,7 @@ export default function Q1({ item }) {
         </ThisOrThatOption>
       </ThisOrThatForm>
 
-      <ThisOrThatForm title="This one is only text">
+      <ThisOrThatForm title="This one is only text" item={item} fieldName="q11">
         <ThisOrThatOption>
           Here is a this or that option!! Here is a this or that option!! Here
           is a this or that option!!
@@ -41,7 +45,11 @@ export default function Q1({ item }) {
         </ThisOrThatOption>
       </ThisOrThatForm>
 
-      <ThisOrThatForm title="This one is only images">
+      <ThisOrThatForm
+        title="This one is only images"
+        item={item}
+        fieldName="q111"
+      >
         <ThisOrThatOption>
           <Image
             loader={() => image}
