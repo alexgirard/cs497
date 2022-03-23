@@ -91,6 +91,11 @@ export default function Demographics() {
                 label="Educator"
               />
               <FormControlLabel
+                value="Industry"
+                control={<Radio checked={form.role === 'Industry'} />}
+                label="Industry"
+              />
+              <FormControlLabel
                 value="Other"
                 control={<Radio checked={form.role === 'Other'} />}
                 label="Other"
