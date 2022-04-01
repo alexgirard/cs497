@@ -1,4 +1,6 @@
 # CS497
+Deployed at: [https://cs497.vercel.app/](https://cs497.vercel.app/).
+
 Airtable + Next.js tutorial: https://www.section.io/engineering-education/integrate-airtable-with-nextjs/
 
 # Next.js
