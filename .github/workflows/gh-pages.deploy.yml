@@ -27,6 +27,10 @@ jobs:
       - name: Install packages
         run: npm ci
       - name: Build project
+        env:
+          AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
+          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+          AIRTABLE_TABLE_NAME: ${{ secrets.AIRTABLE_TABLE_NAME }}
         run: npm run build
       - name: Export static files
         run: npm run export
@@ -35,5 +39,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
+          
           branch: gh-pages
           folder: out
