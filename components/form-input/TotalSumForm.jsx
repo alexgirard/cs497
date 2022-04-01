@@ -78,12 +78,14 @@ export function TotalSumForm({ item, title, children, total, fieldName }) {
   useEffect(() => {
     // Runs only the first time item variable gets set from undefined
     // Set initial state from Airtable
-    const stateString = item?.fields[fieldName] ?? '{}';
-    const stateObject = JSON.parse(stateString);
-    Object.keys(counterStates).forEach((key) => {
-      const [, setCounter] = counterStates[key];
-      setCounter(stateObject[key]);
-    });
+    const stateString = item?.fields[fieldName];
+    if (stateString) {
+      const stateObject = JSON.parse(stateString);
+      Object.keys(counterStates).forEach((key) => {
+        const [, setCounter] = counterStates[key];
+        setCounter(stateObject[key]);
+      });
+    }
   }, [item]);
 
   const reachedSum = () => {

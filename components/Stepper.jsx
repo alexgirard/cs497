@@ -93,7 +93,7 @@ export default function HorizontalNonLinearStepper(props) {
       >
         {allStepsCompleted() ? (
           <Typography sx={{ mt: 2, mb: 1 }}>
-            All steps completed TODO: add a finished thanks blurb
+            All steps completed TODO: add a finished results blurb
           </Typography>
         ) : (
           <StepComponent {...restProps} />
