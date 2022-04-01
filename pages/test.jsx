@@ -9,7 +9,7 @@ import CaseStudy from '../components/CaseStudy';
 import { table, minifyItems } from '../utils/Airtable';
 import { ItemsContext } from '../context/items';
 
-export async function getServerSideProps() {
+export async function getInitialProps() {
   try {
     const items = await table.select({}).firstPage();
     return {
