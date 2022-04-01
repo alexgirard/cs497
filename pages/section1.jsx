@@ -13,7 +13,7 @@ import styles from '../styles/Home.module.css';
 import { table, minifyItems } from '../utils/Airtable';
 import { ItemsContext } from '../context/items';
 
-export async function getInitialProps() {
+export async function getServerSideProps() {
   try {
     const items = await table.select({}).firstPage();
     return {

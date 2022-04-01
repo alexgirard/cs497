@@ -32,13 +32,10 @@ jobs:
           AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
           AIRTABLE_TABLE_NAME: ${{ secrets.AIRTABLE_TABLE_NAME }}
         run: npm run build
-      - name: Export static files
-        run: npm run export
       - name: Add .nojekyll file
         run: touch ./out/.nojekyll
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
-          
           branch: gh-pages
           folder: out

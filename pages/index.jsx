@@ -26,7 +26,7 @@ export default function Home({ initialItems }) {
   );
 }
 
-export async function getInitialProps() {
+export async function getServerSideProps() {
   try {
     const items = await table.select({}).firstPage();
     return {
