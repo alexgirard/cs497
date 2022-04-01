@@ -7,7 +7,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 export default function HorizontalNonLinearStepper(props) {
-  const { steps } = props;
+  const { steps, updateEmail, ...restProps } = props;
+  const { email } = props;
 
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
@@ -21,6 +22,8 @@ export default function HorizontalNonLinearStepper(props) {
   const allStepsCompleted = () => completedSteps() === totalSteps();
 
   const handleNext = () => {
+    // disclaimer step
+    if (activeStep === 1) updateEmail();
     const newActiveStep =
       isLastStep() && !allStepsCompleted()
         ? // It's the last step, but not all steps have been completed,
@@ -73,8 +76,8 @@ export default function HorizontalNonLinearStepper(props) {
     >
       <Box flexGrow={0} pt={5} pb={3}>
         <Stepper nonLinear alternativeLabel activeStep={activeStep}>
-          {steps.map(({ label }, index) => (
-            <Step key={label} completed={completed[index]}>
+          {steps.map(({ label, hidden = false }, index) => (
+            <Step key={label} completed={completed[index]} hidden={hidden}>
               <StepButton color="inherit" onClick={handleStep(index)}>
                 {label}
               </StepButton>
@@ -93,7 +96,7 @@ export default function HorizontalNonLinearStepper(props) {
             All steps completed TODO: add a finished thanks blurb
           </Typography>
         ) : (
-          <StepComponent />
+          <StepComponent {...restProps} />
         )}
       </Box>
       <Box flexGrow={0} pb={3}>
@@ -128,6 +131,7 @@ export default function HorizontalNonLinearStepper(props) {
                     ? handleNext
                     : handleComplete
                 }
+                disabled={activeStep !== 0 && (!email || email === '')}
               >
                 {isLastStep() ? 'Finish' : 'Next'}
               </Button>

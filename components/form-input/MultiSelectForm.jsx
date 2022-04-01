@@ -40,7 +40,7 @@ export const MultiSelectForm = ({ children, title, item, fieldName }) => {
     const updatedFields = { ...item?.fields };
     updatedFields[fieldName] = stateObjectToString(
       checkedStates,
-      event.target.value,
+      event.target.value
     );
     const updatedItem = { id: item?.id, fields: updatedFields };
     updateItem(updatedItem);

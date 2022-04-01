@@ -12,17 +12,34 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormLabel from '@mui/material/FormLabel';
 import Typography from '@mui/material/Typography';
+import { ItemsContext } from '../context/items';
 
 export default function Demographics() {
   const [form, setForm] = React.useState({});
+  const [age, setAge] = React.useState('');
+  const [gender, setGender] = React.useState('');
+  const { updateItem, getItem } = React.useContext(ItemsContext);
 
-  const isEmailFormat = true;
+  React.useEffect(() => {
+    // Runs only the first time item variable gets set from undefined
+    // Set initial state from Airtable
+    const item = getItem();
+    setForm({ ...item?.fields });
+    setAge(item?.fields?.age);
+    setGender(item?.fields?.gender);
+  }, []);
 
   const handleChange = (field) => (e) => {
-    setForm({ ...form, [field]: e.target.value });
-  };
+    if (field === 'age') setAge(e.target.value);
+    else if (field === 'gender') setGender(e.target.value);
+    else setForm({ ...form, [field]: e.target.value });
 
-  // TODO: email validation
+    const item = getItem();
+    const updatedFields = { ...item?.fields };
+    updatedFields[field] = e.target.value;
+    const updatedItem = { id: item?.id, fields: updatedFields };
+    updateItem(updatedItem);
+  };
 
   return (
     <Stack spacing={4} width="100%" maxWidth="900px">
@@ -31,42 +48,40 @@ export default function Demographics() {
       </Typography>
       <Box>
         <Grid container spacing={2} width="100%">
-          <Grid item sm={6}>
-            <TextField
-              id="outlined-basic"
-              label="Email"
-              variant="outlined"
-              error={!isEmailFormat}
-              fullWidth
-              required
-            />
-          </Grid>
-          <Grid item sm={6}>
+          <Grid item xs={12} sm={6}>
             <FormControl fullWidth>
               <InputLabel id="gender-label">Gender</InputLabel>
               <Select
                 labelId="gender-label"
                 id="gender-select"
-                value={form.gender}
+                value={gender}
                 label="Gender"
                 onChange={handleChange('gender')}
               >
                 <MenuItem value="Female">Female</MenuItem>
                 <MenuItem value="Male">Male</MenuItem>
+                <MenuItem value="Nonbinary">Non-Binary</MenuItem>
                 <MenuItem value="Other">Other</MenuItem>
+                <MenuItem value="PreferNotSay">Prefer not to answer</MenuItem>
               </Select>
             </FormControl>
           </Grid>
-          <Grid item sm={6}>
-            <TextField
-              id="outlined-basic"
-              label="Age"
-              variant="outlined"
-              type="number"
-              value={form.age}
-              onChange={handleChange('age')}
-              fullWidth
-            />
+          <Grid item xs={12} sm={6}>
+            <FormControl fullWidth>
+              <InputLabel id="age-label">Age</InputLabel>
+              <Select
+                labelId="age-label"
+                id="age-select"
+                value={age}
+                label="Age"
+                onChange={handleChange('age')}
+              >
+                <MenuItem value="0-18">0 - 18</MenuItem>
+                <MenuItem value="18-30">18 - 30</MenuItem>
+                <MenuItem value="30-60">30 - 60</MenuItem>
+                <MenuItem value="60+">60+</MenuItem>
+              </Select>
+            </FormControl>
           </Grid>
         </Grid>
       </Box>
@@ -114,7 +129,7 @@ export default function Demographics() {
             </Box>
           )}
         </Grid>
-        <Grid item sm={12}>
+        <Grid item xs={12}>
           <TextField
             id="outlined-basic"
             label="Field of Study"

@@ -1,9 +1,17 @@
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
+import Cookies from 'js-cookie';
 
 const ItemsContext = createContext();
 
 const ItemsProvider = ({ children }) => {
   const [items, setItems] = useState();
+
+  const getItem = () => {
+    const id = Cookies.get('id');
+    const item = (items ?? []).find((i) => i.id === id);
+    console.log('-test', items, item);
+    return item;
+  };
 
   // for creating an item
   const addItem = async (item) => {
@@ -15,8 +23,9 @@ const ItemsProvider = ({ children }) => {
         headers: { "Content-Type": "application/json" },
       });
       const newItem = await res.json();
+      Cookies.set('id', newItem.id);
       // then we will update the 'items' adding the newly added item to it
-      setItems((prevItems) => [newItem, ...prevItems]);
+      setItems((prevItems) => [newItem, ...(prevItems || [])]);
     } catch (error) {
       console.error(error);
     }
@@ -34,11 +43,11 @@ const ItemsProvider = ({ children }) => {
       await res.json();
       // then we will update the 'items' by replacing the fields of existing item.
       setItems((prevItems) => {
-        const existingItems = [...prevItems];
+        const existingItems = [...(prevItems || [])];
         const existingItem = existingItems.find(
           (item) => item.id === updatedItem.id
         );
-        existingItem.fields = updatedItem.fields;
+        existingItem?.fields = updatedItem.fields;
         return existingItems;
       });
     } catch (error) {
@@ -71,6 +80,7 @@ const ItemsProvider = ({ children }) => {
         updateItem,
         deleteItem,
         addItem,
+        getItem,
       }}
     >
       {children}
