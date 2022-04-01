@@ -28,7 +28,7 @@ export const CounterButton = ({
   disableIncrement,
 }) => (
   <Box display="flex">
-    <Box mr={1} alignSelf="center">
+    <Box mr={1} width="100%">
       {label}
     </Box>
     <ButtonGroup orientation="vertical">
