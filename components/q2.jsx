@@ -1,4 +1,5 @@
 import React from 'react';
+import Typography from '@mui/material/Typography';
 // import styles from '../styles/Home.module.css';
 import { TotalSumForm, CounterButton } from './form-input/TotalSumForm';
 

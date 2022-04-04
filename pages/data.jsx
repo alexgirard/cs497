@@ -34,10 +34,10 @@ export default function Data() {
 
   return (
     <div className={styles.container}>
-      <Typography variant="h4">Top Data for Whole Table</Typography>
+      <h1>Top Data for Whole Table</h1>
       {getPercentages(data)}
       <br />
-      <Typography variant="h4">Top Data for Females in Table Only</Typography>
+      <h1>Top Data for Females in Table Only</h1>
       {getPercentages(femaleData)}
     </div>
   );
