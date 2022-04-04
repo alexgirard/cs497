@@ -5,7 +5,7 @@ import { TotalSumForm, CounterButton } from './form-input/TotalSumForm';
 export default function Q2({ item }) {
   return (
     <div>
-      <h1>Hi! I'm a DIFFERENT Question :) </h1>
+      <Typography variant="h4">Hi! I'm a DIFFERENT Question :) </Typography>
       <TotalSumForm
         item={item}
         title="Here is custom form title like some instructions"

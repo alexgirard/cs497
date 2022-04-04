@@ -8,7 +8,7 @@ const image = 'https://nextjs.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsh
 export default function Q1({ item }) {
   return (
     <div>
-      <h1>Hi! I'm a Question and I have lots of thoughts</h1>
+      <Typography variant="h4">Hi! I'm a Question and I have lots of thoughts</Typography>
       <RadioForm title="look another form!" item={item} fieldName="email">
         <RadioOption value="1" label="I'm an option wow!!" />
         <RadioOption value="2" label="I'm another option wow!!" />

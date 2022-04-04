@@ -10,9 +10,9 @@ import {
 export default function Q2({ item }) {
   return (
     <Container width="100%">
-      <h1>Role: Product Manager</h1>
-      <Box width="100%" pt={4}>
-        <h2>Question 2</h2>
+      <Typography variant="h4">Role: Product Manager</Typography>
+      <Box width="100%" pt={2}>
+        <Typography variant="h5">Question 2</Typography>
         <Typography>
           As you walk down the Main Street of BetterWorld, different stores and
           or communities shown to users will be based on: (select all that

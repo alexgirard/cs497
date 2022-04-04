@@ -10,9 +10,9 @@ import {
 export default function Q3({ item }) {
   return (
     <Container width="100%">
-      <h1>Role: Designer</h1>
-      <Box width="100%" pt={4}>
-        <h2>Question 3</h2>
+      <Typography variant="h4">Role: Designer</Typography>
+      <Box width="100%" pt={2}>
+        <Typography variant="h5">Question 3</Typography>
         <Typography>
           Something about protecting privacy/tracking/preventing harassment of
           people? Privacy and safety are important! How do you add support for

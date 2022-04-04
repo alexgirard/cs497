@@ -10,9 +10,9 @@ import {
 export default function Q5({ item }) {
   return (
     <Container width="100%">
-      <h1>Role: Product Manager</h1>
-      <Box width="100%" pt={4}>
-        <h2>Question 5</h2>
+      <Typography variant="h4">Role: Product Manager</Typography>
+      <Box width="100%" pt={2}>
+        <Typography variant="h5">Question 5</Typography>
         <Typography>
           In the platform beta release people have been spending crazy amounts
           of time online out of touch with reality. This is great for your
