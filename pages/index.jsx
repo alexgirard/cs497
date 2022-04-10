@@ -11,6 +11,7 @@ import MLIntro from '../components/questions/ml/intro';
 import MLQ1 from '../components/questions/ml/q1';
 import MLQ2 from '../components/questions/ml/q2';
 import MLQ3 from '../components/questions/ml/q3';
+import MLQ4 from '../components/questions/ml/q4';
 import DIntro from '../components/questions/designer/intro';
 import DQ1 from '../components/questions/designer/q1';
 import DQ2 from '../components/questions/designer/q2';
@@ -101,6 +102,12 @@ export default function Home({ initialItems }) {
               label: 'ML Engineer Q3',
               hidden: true,
               component: () => <MLQ3 item={item} />,
+              info: 'test',
+            },
+            {
+              label: 'ML Engineer Q4',
+              hidden: true,
+              component: () => <MLQ4 item={item} />,
               info: 'test',
             },
             {
