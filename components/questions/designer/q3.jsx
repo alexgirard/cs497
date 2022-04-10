@@ -14,26 +14,30 @@ export default function Q3({ item }) {
       <Box width="100%" pt={2}>
         <Typography variant="h5">Question 3</Typography>
         <Typography>
-          Something about protecting privacy/tracking/preventing harassment of
-          people? Privacy and safety are important! How do you add support for
-          reporting bad actors? Or like vote which ones are most effective?
+          Next, we’ll work on creating a user login. The stakeholders at your
+          company have decided that they want a user’s in-game profile should
+          mirror the real world user. To do so, they want only “real names” to
+          be allowed. How do you ensure users are doing so?
         </Typography>
         <MultiSelectForm
-          title="Choose up to 3 methods"
+          title="Check all that apply."
           item={item}
           fieldName="dq3"
         >
-          <MultiSelectOption value="1" label="Time free zone" />
-          <MultiSelectOption value="2" label="Report users and ban them " />
-          <MultiSelectOption value="3" label="Block users" />
+          <MultiSelectOption
+            value="1"
+            label="Verify users with government ID."
+          />
+          <MultiSelectOption
+            value="2"
+            label="Specify first name and last name on registration."
+          />
+          <MultiSelectOption value="3" label="Allow free form name input." />
           <MultiSelectOption
             value="4"
-            label="Notify the user of nearby users so they can monitor safety"
+            label="Perform validation on names to ensure people aren’t using random letters."
           />
-          <MultiSelectOption
-            value="5"
-            label="How to protect from bad actors?"
-          />
+          <MultiSelectOption value="5" label="Perform length checking." />
         </MultiSelectForm>
       </Box>
     </Container>
