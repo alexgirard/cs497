@@ -18,6 +18,7 @@ import DQ2 from '../components/questions/designer/q2';
 import DQ3 from '../components/questions/designer/q3';
 import DQ4 from '../components/questions/designer/q4';
 import DQ5 from '../components/questions/designer/q5';
+import DQ6 from '../components/questions/designer/q6';
 import PMIntro from '../components/questions/pm/intro';
 import PMQ1 from '../components/questions/pm/q1';
 import PMQ2 from '../components/questions/pm/q2';
@@ -143,6 +144,12 @@ export default function Home({ initialItems }) {
               label: 'Designer Q5',
               hidden: true,
               component: () => <DQ5 item={item} />,
+              info: 'test',
+            },
+            {
+              label: 'Designer Q6',
+              hidden: true,
+              component: () => <DQ6 item={item} />,
               info: 'test',
             },
             {
