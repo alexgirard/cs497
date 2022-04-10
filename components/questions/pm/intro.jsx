@@ -9,7 +9,12 @@ export default function Intro() {
         Role: Product Manager
       </Typography>
       <Stack spacing={2}>
-        <Typography>Here is some Copy</Typography>
+        <Typography>
+          You are the product manager for BetterWorld. Your role is to
+          communicate with stakeholders, and make key product decisions for
+          engineers and designers to implement. You are also responsible for
+          meeting deadlines and allocating human resources.
+        </Typography>
       </Stack>
     </Stack>
   );
