@@ -1,6 +1,7 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Link, Typography } from '@mui/material';
 import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import { TotalSumForm, CounterButton } from '../../form-input/TotalSumForm';
 
@@ -27,5 +28,52 @@ export default function Q2({ item }) {
         </TotalSumForm>
       </Box>
     </Container>
+  );
+}
+
+export function info() {
+  return (
+    <Stack spacing={2}>
+      <Typography>
+        For those from a Chinese background, the eyes are a stronger indicator
+        of facial expressions. On the other hand, for Western Caucasians, the
+        eyebrows and mouth carry more weight.
+      </Typography>
+      <Typography>
+        If BetterWorld is to be released globally, the understanding of facial
+        features is something to consider. If your algorithm placed more
+        emphasis on one feature than the other, you may lose the recognition of
+        expressions from certain groups, or it may lead to misunderstandings
+        among users if false positives of expression recognition occur.
+      </Typography>
+      <Typography>
+        RAF-DB:{' '}
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="http://www.whdeng.cn/raf/model1.htm"
+        >
+          http://www.whdeng.cn/raf/model1.html
+        </Link>
+        ,{' '}
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://arxiv.org/abs/2103.08637"
+        >
+          https://arxiv.org/abs/2103.08637
+        </Link>
+      </Typography>
+      <Typography>
+        Perception of Facial Expressions Across Cultures:{' '}
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.apa.org/news/press/releases/2011/09/facial-expressions"
+        >
+          https://www.apa.org/news/press/releases/2011/09/facial-expressions{' '}
+        </Link>
+      </Typography>
+    </Stack>
   );
 }

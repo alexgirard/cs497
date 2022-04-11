@@ -8,10 +8,10 @@ import Welcome from '../components/Welcome';
 import Disclaimer from '../components/Disclaimer';
 import CaseStudy from '../components/CaseStudy';
 import MLIntro from '../components/questions/ml/intro';
-import MLQ1 from '../components/questions/ml/q1';
-import MLQ2 from '../components/questions/ml/q2';
-import MLQ3 from '../components/questions/ml/q3';
-import MLQ4 from '../components/questions/ml/q4';
+import MLQ1, { info as MLQ1Info } from '../components/questions/ml/q1';
+import MLQ2, { info as MLQ2Info } from '../components/questions/ml/q2';
+import MLQ3, { info as MLQ3Info } from '../components/questions/ml/q3';
+import MLQ4, { info as MLQ4Info } from '../components/questions/ml/q4';
 import DIntro from '../components/questions/designer/intro';
 import DQ1 from '../components/questions/designer/q1';
 import DQ2 from '../components/questions/designer/q2';
@@ -91,25 +91,25 @@ export default function Home({ initialItems }) {
               label: 'ML Engineer Q1',
               hidden: true,
               component: () => <MLQ1 item={item} />,
-              info: 'test',
+              info: <MLQ1Info />,
             },
             {
               label: 'ML Engineer Q2',
               hidden: true,
               component: () => <MLQ2 item={item} />,
-              info: 'test',
+              info: <MLQ2Info />,
             },
             {
               label: 'ML Engineer Q3',
               hidden: true,
               component: () => <MLQ3 item={item} />,
-              info: 'test',
+              info: <MLQ3Info />,
             },
             {
               label: 'ML Engineer Q4',
               hidden: true,
               component: () => <MLQ4 item={item} />,
-              info: 'test',
+              info: <MLQ4Info />,
             },
             {
               label: 'Designer',
