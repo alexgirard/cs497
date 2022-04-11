@@ -11,14 +11,12 @@ import MLIntro from '../components/questions/ml/intro';
 import MLQ1 from '../components/questions/ml/q1';
 import MLQ2 from '../components/questions/ml/q2';
 import MLQ3 from '../components/questions/ml/q3';
-import MLQ4 from '../components/questions/ml/q4';
 import DIntro from '../components/questions/designer/intro';
 import DQ1 from '../components/questions/designer/q1';
 import DQ2 from '../components/questions/designer/q2';
 import DQ3 from '../components/questions/designer/q3';
 import DQ4 from '../components/questions/designer/q4';
 import DQ5 from '../components/questions/designer/q5';
-import DQ6 from '../components/questions/designer/q6';
 import PMIntro from '../components/questions/pm/intro';
 import PMQ1 from '../components/questions/pm/q1';
 import PMQ2 from '../components/questions/pm/q2';
@@ -106,12 +104,6 @@ export default function Home({ initialItems }) {
               info: 'test',
             },
             {
-              label: 'ML Engineer Q4',
-              hidden: true,
-              component: () => <MLQ4 item={item} />,
-              info: 'test',
-            },
-            {
               label: 'Designer',
               hidden: isSmallDevice,
               stepLabel: 6,
@@ -144,12 +136,6 @@ export default function Home({ initialItems }) {
               label: 'Designer Q5',
               hidden: true,
               component: () => <DQ5 item={item} />,
-              info: 'test',
-            },
-            {
-              label: 'Designer Q6',
-              hidden: true,
-              component: () => <DQ6 item={item} />,
               info: 'test',
             },
             {

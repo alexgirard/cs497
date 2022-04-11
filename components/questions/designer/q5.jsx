@@ -1,12 +1,8 @@
 import React from 'react';
 import { Typography } from '@mui/material';
 import Container from '@mui/material/Container';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import {
-  ThisOrThatForm,
-  ThisOrThatOption,
-} from '../../form-input/ThisOrThatForm';
+import { RadioForm, RadioOption } from '../../form-input/RadioForm';
 
 export default function Q5({ item }) {
   return (
@@ -14,42 +10,28 @@ export default function Q5({ item }) {
       <Typography variant="h4">Role: Designer</Typography>
       <Box width="100%" pt={2}>
         <Typography variant="h5">Question 5</Typography>
-        <Stack spacing={2}>
-          <Typography>
-            Next, we’ll be working on the shopping experience for Main Street
-            stores. When a user visits a store, they’ll be able to view
-            products, see detailed information about them, and checkout – all in
-            VR.
-          </Typography>
-          <Typography>
-            We have a few product decisions we’ll need to make regarding the
-            user interfaces for this feature.
-          </Typography>
-        </Stack>
-        <ThisOrThatForm
-          title="Which way to present shopping listings is better?"
+        <Typography>
+          How do you provide regional support? Do you only support English? Will
+          people in different regions be able to communicate?
+        </Typography>
+        <RadioForm
+          title="Decide which tradeoffs to make:"
           item={item}
-          fieldName="dq5.1"
+          fieldName="dq5"
         >
-          <ThisOrThatOption>TODO1</ThisOrThatOption>
-          <ThisOrThatOption>TODO2</ThisOrThatOption>
-        </ThisOrThatForm>
-        <ThisOrThatForm
-          title="Which way to navigate in a store is better?"
-          item={item}
-          fieldName="dq5.2"
-        >
-          <ThisOrThatOption>TODO1</ThisOrThatOption>
-          <ThisOrThatOption>TODO2</ThisOrThatOption>
-        </ThisOrThatForm>
-        <ThisOrThatForm
-          title="Which colour combination is better?"
-          item={item}
-          fieldName="dq5.3"
-        >
-          <ThisOrThatOption>TODO1</ThisOrThatOption>
-          <ThisOrThatOption>TODO2</ThisOrThatOption>
-        </ThisOrThatForm>
+          <RadioOption
+            value="1"
+            label="Only support English (launch in 1 month)"
+          />
+          <RadioOption
+            value="2"
+            label="Just translate all text (launch in 4 months)"
+          />
+          <RadioOption
+            value="3"
+            label="Spend time developing full localization (launch in 1 year)"
+          />
+        </RadioForm>
       </Box>
     </Container>
   );

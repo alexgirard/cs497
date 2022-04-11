@@ -11,36 +11,40 @@ export default function Q1({ item }) {
       <Box width="100%" pt={2}>
         <Typography variant="h5">Question 1</Typography>
         <Typography>
-          The first task is to design a virtual reality headset with the
-          hardware team. You have 15 hours to use, and you can divide them
-          across several focuses.
+          Designing a Headset: Time Question, you have finite hours, what do you
+          spend time doing.
         </Typography>
         <TotalSumForm
           item={item}
-          title="How will you allocate your time?"
+          title="You have 15 hours hours to use, how will you break them up?"
           total={15}
           fieldName="dq1"
         >
           <CounterButton
             id="d1-1"
-            label="Conduct exploratory user interviews on how users want to use the headset."
+            label="Exploratory user interviews on how users want to use the headset."
           />
           <CounterButton
             id="d1-2"
-            label="Determine your dominant user groups through market research."
+            label="Interviewing different communities to learn about their needs."
           />
           <CounterButton
             id="d1-3"
-            label="Find a diverse sample of participants for focus groups."
+            label="Finding a diverse sample of participants for focus groups."
           />
           <CounterButton
             id="d1-4"
-            label="Focus on designing around accessibility guidelines."
+            label="Building and prototyping a headset."
           />
           <CounterButton
             id="d1-5"
-            label="Create a physical prototype of the headset."
+            label="Testing the fit of a prototype headset on team mates and other company members."
           />
+          <CounterButton
+            id="d1-6"
+            label="Testing the fit of a prototype headset on a diverse sample of customers."
+          />
+          <CounterButton id="d1-7" label="something about accessibility." />
         </TotalSumForm>
       </Box>
     </Container>
