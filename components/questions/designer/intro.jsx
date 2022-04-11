@@ -9,7 +9,13 @@ export default function Intro() {
         Role: Designer
       </Typography>
       <Stack spacing={2}>
-        <Typography>Here is some Copy</Typography>
+        <Typography>
+          You are the lead designer for BetterWorld, working on making the best
+          user experience possible. Along with your team, you’ll be working on
+          designing hardware for the product (namely, a virtual reality
+          headset), the user interface, and the experience our users will have
+          using our app.{' '}
+        </Typography>
       </Stack>
     </Stack>
   );

@@ -32,7 +32,6 @@ export const CounterButton = ({
       mr={2}
       width="100%"
       maxWidth="160px"
-      textAlign="right"
       display="flex"
       alignItems="center"
     >
