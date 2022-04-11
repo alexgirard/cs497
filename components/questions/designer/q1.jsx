@@ -41,7 +41,6 @@ export default function Q1({ item }) {
             id="d1-5"
             label="Create a physical prototype of the headset."
           />
-          <CounterButton id="d1-7" label="something about accessibility." />
         </TotalSumForm>
       </Box>
     </Container>
