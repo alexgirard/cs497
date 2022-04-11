@@ -5,6 +5,7 @@ import Step from '@mui/material/Step';
 import StepButton from '@mui/material/StepButton';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import InfoWrapper from './InfoWrapper';
 
 export default function HorizontalNonLinearStepper(props) {
   const { steps, updateEmail, ...restProps } = props;
@@ -12,6 +13,7 @@ export default function HorizontalNonLinearStepper(props) {
 
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
+  const [showInfo, setShowInfo] = React.useState({});
 
   const totalSteps = () => steps.length;
 
@@ -21,9 +23,17 @@ export default function HorizontalNonLinearStepper(props) {
 
   const allStepsCompleted = () => completedSteps() === totalSteps();
 
+  const stepHasInfo = () => !!steps[activeStep]?.info;
+
   const handleNext = () => {
     // disclaimer step
     if (activeStep === 1) updateEmail();
+    else if (stepHasInfo() && !showInfo[activeStep]) {
+      const newInfo = { ...showInfo };
+      newInfo[activeStep] = true;
+      setShowInfo(newInfo);
+      return;
+    }
     const newActiveStep =
       isLastStep() && !allStepsCompleted()
         ? // It's the last step, but not all steps have been completed,
@@ -67,6 +77,8 @@ export default function HorizontalNonLinearStepper(props) {
   };
 
   const StepComponent = steps[activeStep]?.component;
+  const StepInfo = steps[activeStep]?.info;
+  console.log(stepHasInfo(), showInfo);
 
   return (
     <Box
@@ -76,9 +88,13 @@ export default function HorizontalNonLinearStepper(props) {
     >
       <Box flexGrow={0} pt={5} pb={3}>
         <Stepper nonLinear alternativeLabel activeStep={activeStep}>
-          {steps.map(({ label, hidden = false }, index) => (
+          {steps.map(({ label, hidden = false, stepLabel }, index) => (
             <Step key={label} completed={completed[index]} hidden={hidden}>
-              <StepButton color="inherit" onClick={handleStep(index)}>
+              <StepButton
+                color="inherit"
+                onClick={handleStep(index)}
+                icon={stepLabel}
+              >
                 {label}
               </StepButton>
             </Step>
@@ -91,10 +107,17 @@ export default function HorizontalNonLinearStepper(props) {
         alignItems="center"
         justifyContent="center"
       >
+        {/* eslint-disable-next-line no-nested-ternary */}
         {allStepsCompleted() ? (
           <Typography sx={{ mt: 2, mb: 1 }}>
             All steps completed TODO: add a finished results blurb
           </Typography>
+        ) : stepHasInfo() ? (
+          <InfoWrapper
+            component={StepComponent}
+            info={showInfo[activeStep] && StepInfo}
+            {...restProps}
+          />
         ) : (
           <StepComponent {...restProps} />
         )}

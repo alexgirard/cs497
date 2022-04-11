@@ -1,4 +1,5 @@
 import React from 'react';
+import Typography from '@mui/material/Typography';
 import {
   MultiSelectForm,
   MultiSelectOption,
@@ -7,7 +8,7 @@ import {
 export default function Q3({ item }) {
   return (
     <div>
-      <h1>This a third question!! </h1>
+      <Typography variant="h4">This a third question!! </Typography>
       <MultiSelectForm title="look another form!" item={item} fieldName="q3">
         <MultiSelectOption value="3" label="ethics is very important" />
         <MultiSelectOption value="1" label="I'm an option wow!!" />

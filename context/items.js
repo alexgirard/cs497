@@ -9,7 +9,6 @@ const ItemsProvider = ({ children }) => {
   const getItem = () => {
     const id = Cookies.get('id');
     const item = (items ?? []).find((i) => i.id === id);
-    console.log('-test', items, item);
     return item;
   };
 

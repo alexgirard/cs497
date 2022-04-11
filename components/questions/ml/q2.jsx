@@ -7,9 +7,9 @@ import { TotalSumForm, CounterButton } from '../../form-input/TotalSumForm';
 export default function Q2({ item }) {
   return (
     <Container width="100%">
-      <h1>Role: ML Engineer</h1>
-      <Box width="100%" pt={4}>
-        <h2>Question 2</h2>
+      <Typography variant="h4">Role: ML Engineer</Typography>
+      <Box width="100%" pt={2}>
+        <Typography variant="h5">Question 2</Typography>
         <Typography>
           Now that we have a dataset, we’ll need to decide which facial features
           are relevant for our algorithm. For each feature, the amount of points

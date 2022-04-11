@@ -10,9 +10,9 @@ import {
 export default function Q4({ item }) {
   return (
     <Container width="100%">
-      <h1>Role: Designer</h1>
-      <Box width="100%" pt={4}>
-        <h2>Question 4</h2>
+      <Typography variant="h4">Role: Designer</Typography>
+      <Box width="100%" pt={2}>
+        <Typography variant="h5">Question 4</Typography>
         <Typography>
           Something more shopping specific? How to make the shopping interface
           itself accessible to those with low visibility?

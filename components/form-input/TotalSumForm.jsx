@@ -2,7 +2,7 @@ import React, { useState, cloneElement, useContext, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import FormLabel from '@mui/material/FormLabel';
 import AddIcon from '@mui/icons-material/Add';
@@ -28,7 +28,14 @@ export const CounterButton = ({
   disableIncrement,
 }) => (
   <Box display="flex">
-    <Box mr={1} width="100%">
+    <Box
+      mr={2}
+      width="100%"
+      maxWidth="160px"
+      textAlign="right"
+      display="flex"
+      alignItems="center"
+    >
       {label}
     </Box>
     <ButtonGroup orientation="vertical">
@@ -88,13 +95,15 @@ export function TotalSumForm({ item, title, children, total, fieldName }) {
     }
   }, [item]);
 
-  const reachedSum = () => {
-    let counterSum = 0;
+  const counterSum = () => {
+    let sum = 0;
     Object.values(counterStates).forEach((counterState) => {
-      counterSum += counterState[0];
+      sum += counterState[0];
     });
-    return counterSum >= total;
+    return sum;
   };
+
+  const reachedSum = () => counterSum() >= total;
 
   const onCounterChange = (counterIndex, updatedCount) => {
     const updatedFields = { ...item?.fields };
@@ -111,11 +120,11 @@ export function TotalSumForm({ item, title, children, total, fieldName }) {
   };
 
   return (
-    <Container sx={{ p: 4 }}>
-      <FormLabel>{title}</FormLabel>
-      <Grid container spacing={10} alignItems="center">
+    <Stack mt={3}>
+      <FormLabel>{`${title} You have set ${counterSum()}/${total}.`}</FormLabel>
+      <Grid container rowSpacing={6} alignItems="center" mt={0}>
         {children.map((child, childIndex) => (
-          <Grid item xs={6} md={6} key={child.props.id}>
+          <Grid item xs={6} md={4} key={child.props.id} width="100%">
             {cloneElement(child, {
               setCounter: (val) => onCounterChange(childIndex, val),
               counter: counterStates[childIndex][0],
@@ -124,6 +133,6 @@ export function TotalSumForm({ item, title, children, total, fieldName }) {
           </Grid>
         ))}
       </Grid>
-    </Container>
+    </Stack>
   );
 }

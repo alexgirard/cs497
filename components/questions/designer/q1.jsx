@@ -1,19 +1,15 @@
 import React from 'react';
 import { Typography } from '@mui/material';
 import Container from '@mui/material/Container';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import { TotalSumForm, CounterButton } from '../../form-input/TotalSumForm';
 
 export default function Q1({ item }) {
   return (
     <Container width="100%">
-      <h1>Role: Designer</h1>
-      <Stack spacing={2}>
-        <Typography>Here is some copy</Typography>
-      </Stack>
-      <Box width="100%" pt={4}>
-        <h2>Question 1</h2>
+      <Typography variant="h4">Role: Designer</Typography>
+      <Box width="100%" pt={2}>
+        <Typography variant="h5">Question 1</Typography>
         <Typography>
           Designing a Headset: Time Question, you have finite hours, what do you
           spend time doing.
@@ -21,7 +17,7 @@ export default function Q1({ item }) {
         <TotalSumForm
           item={item}
           title="You have 15 hours hours to use, how will you break them up?"
-          total={10}
+          total={15}
           fieldName="dq1"
         >
           <CounterButton

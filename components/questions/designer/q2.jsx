@@ -10,9 +10,9 @@ import {
 export default function Q2({ item }) {
   return (
     <Container width="100%">
-      <h1>Role: Designer</h1>
-      <Box width="100%" pt={4}>
-        <h2>Question 2</h2>
+      <Typography variant="h4">Role: Designer</Typography>
+      <Box width="100%" pt={2}>
+        <Typography variant="h5">Question 2</Typography>
         <Typography>
           You need to design a user login. The higher-ups at your company have
           decided that they want the identities of users to accurately represent
