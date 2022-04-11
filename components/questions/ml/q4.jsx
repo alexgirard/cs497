@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Link, Typography } from '@mui/material';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
@@ -48,5 +48,58 @@ export default function Q4({ item }) {
         </ThisOrThatForm>
       </Box>
     </Container>
+  );
+}
+
+export function info() {
+  return (
+    <Stack spacing={2}>
+      <Typography>
+        <b>Identifying explicit and sensitive words </b> to filter out sensitive
+        content may seem great, but people with seemingly “rude” names can
+        experience discrimination when faced with offensive language filters
+        such as these.
+      </Typography>
+      <Typography>
+        On Twitter, Natalie Weiner (@natalieweiner) experienced her frustration
+        when a user sign-up page blocked her last name on the premise of
+        “offensive language”. How can a computer determine your name is “valid”
+        when compared to a list of explicit words, and is taken out of context?
+        A semantic challenge is presented, requiring more context than an AI
+        could handle.
+        <br />
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://news.canningspurple.com.au/when-technology-says-no-to-your-dirty-name/"
+        >
+          https://news.canningspurple.com.au/when-technology-says-no-to-your-dirty-name/
+        </Link>
+      </Typography>
+      <Typography>
+        If we use a <b>context aware machine learning approach</b>, we can catch
+        messages that may slip under the radar with an explicit keyword
+        detection system. As well, with simple keyword searching we could
+        produce false positives. A notable example of this technology can be
+        found in Slack bots – to report sexual harassment in the workplace or to
+        improve the use of inclusive language.
+        <Stack>
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://venturebeat.com/2019/02/01/valued-raises-1-7-million-for-slack-chatbot-that-helps-combat-workplace-harassment/"
+          >
+            https://venturebeat.com/2019/02/01/valued-raises-1-7-million-for-slack-chatbot-that-helps-combat-workplace-harassment/
+          </Link>
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.awarehq.com/blog/identifying-and-reducing-workplace-sexual-harassment-with-ai"
+          >
+            https://www.awarehq.com/blog/identifying-and-reducing-workplace-sexual-harassment-with-ai
+          </Link>
+        </Stack>
+      </Typography>
+    </Stack>
   );
 }
