@@ -14,21 +14,24 @@ export default function Q5({ item }) {
       <Box width="100%" pt={2}>
         <Typography variant="h5">Question 5</Typography>
         <Typography>
-          In the platform beta release people have been spending crazy amounts
-          of time online out of touch with reality. This is great for your
-          profit margins as more time spent on the app equals more ad revenue,
-          but to the potential detriment of the users. Do add a goal to
-          implement watch/playtime limits or reminders which sacrifices revenue
-          for the health of your users, or keep the product the way it is and
-          impose the users create their own limits.
+          In the beta release of BetterWorld, the team received reports of users
+          spending long hours in-game without breaks. Although this is great for
+          profit margins, as more users spent on the platform results in greater
+          revenue, there could be negative mental and physical effects on the
+          users.
         </Typography>
         <ThisOrThatForm
-          title="We have two options:"
+          title="What should we do to address these concerns?"
           item={item}
           fieldName="pmq5"
         >
-          <ThisOrThatOption>A.</ThisOrThatOption>
-          <ThisOrThatOption>B.</ThisOrThatOption>
+          <ThisOrThatOption>
+            Implement playtime limits or reminders for the health of our users.
+          </ThisOrThatOption>
+          <ThisOrThatOption>
+            Keep the product the way it is, and give users the tools to impose
+            their own limits (i.e. Do Not Disturb mode on iOS devices)
+          </ThisOrThatOption>
         </ThisOrThatForm>
       </Box>
     </Container>

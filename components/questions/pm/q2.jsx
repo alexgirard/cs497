@@ -14,19 +14,24 @@ export default function Q2({ item }) {
       <Box width="100%" pt={2}>
         <Typography variant="h5">Question 2</Typography>
         <Typography>
-          As you walk down the Main Street of BetterWorld, different stores and
-          or communities shown to users will be based on: (select all that
-          apply)
+          As a user walks down Main Street inside BetterWorld, we want to show
+          them different stores and communities to our users. What
+          characteristics should we base these recommendations on?
         </Typography>
         <MultiSelectForm
-          title="Select all that apply"
+          title="Select all that apply."
           item={item}
           fieldName="pmq2"
         >
-          <MultiSelectOption value="1" label="Race/ethnicity" />
-          <MultiSelectOption value="2" label="Music interests" />
-          <MultiSelectOption value="3" label="Religious affiliations" />
-          <MultiSelectOption value="4" label="National origin" />
+          <MultiSelectOption value="1" label="Race or ethnicity." />
+          <MultiSelectOption value="2" label="Music interests." />
+          <MultiSelectOption value="3" label="Religious affiliations." />
+          <MultiSelectOption value="4" label="Nationality." />
+          <MultiSelectOption value="5" label="Sexual orientation." />
+          <MultiSelectOption value="6" label="Age demographics." />
+          <MultiSelectOption value="7" label="Sports interests." />
+          <MultiSelectOption value="8" label="Gender-based groups." />
+          <MultiSelectOption value="9" label="Political beliefs." />
         </MultiSelectForm>
       </Box>
     </Container>
