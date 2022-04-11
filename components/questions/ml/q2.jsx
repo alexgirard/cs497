@@ -35,9 +35,10 @@ export function info() {
   return (
     <Stack spacing={2}>
       <Typography>
-        For those from a Chinese background, the eyes are a stronger indicator
-        of facial expressions. On the other hand, for Western Caucasians, the
-        eyebrows and mouth carry more weight.
+        Research has shown that certain cultures perceive facial movements
+        differently. For those from a Chinese background, the eyes are a
+        stronger indicator of facial expressions. On the other hand, for Western
+        Caucasians, the eyebrows and mouth carry more weight.
       </Typography>
       <Typography>
         If BetterWorld is to be released globally, the understanding of facial
