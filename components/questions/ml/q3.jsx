@@ -91,7 +91,8 @@ export function info() {
         markets than just English – improving accessibility for users outside of
         major markets. However, users may find frustration if their commands
         aren’t properly understood by the machine, turning them away from using
-        the voice feature entirely.
+        the voice feature entirely. Often, users will turn to typing on their
+        keyboard when all else fails.
       </Typography>
     </Stack>
   );
