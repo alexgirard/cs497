@@ -28,9 +28,10 @@ export default function Q2({ item }) {
           <MultiSelectOption value="3" label="Religious affiliations." />
           <MultiSelectOption value="4" label="Nationality." />
           <MultiSelectOption value="5" label="Sexual orientation." />
-          <MultiSelectOption value="6" label="Sports interests." />
-          <MultiSelectOption value="7" label="Gender-based groups." />
-          <MultiSelectOption value="8" label="Political beliefs." />
+          <MultiSelectOption value="6" label="Age demographics." />
+          <MultiSelectOption value="7" label="Sports interests." />
+          <MultiSelectOption value="8" label="Gender-based groups." />
+          <MultiSelectOption value="9" label="Political beliefs." />
         </MultiSelectForm>
       </Box>
     </Container>
