@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Typography, Link } from '@mui/material';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
@@ -37,5 +37,39 @@ export default function Q4({ item }) {
         </RadioForm>
       </Box>
     </Container>
+  );
+}
+
+export function info() {
+  return (
+    <Stack spacing={2}>
+      <Typography>
+        It’s important to ensure our platform is a safe and fun space for all
+        users, so it’s important to have policies around how to handle hate
+        speech.
+      </Typography>
+      <Typography>
+        Algorithmic solutions to identify hate speech or negative language can
+        be cheap ways to moderate a site, but many of these algorithms in the
+        past have shown to disproportionately impact racial minorities and
+        women:
+        <Stack>
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://12ft.io/proxy?q=https%3A%2F%2Fwww.washingtonpost.com%2Ftechnology%2F2021%2F11%2F21%2Ffacebook-algorithm-biased-race%2F"
+          >
+            www.washingtonpost.com/technology/2021/11/21/facebook-algorithm-biased-race
+          </Link>
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.refinery29.com/en-gb/2020/12/10150275/shadow-ban-instagram-censorship-women-of-colour"
+          >
+            https://www.refinery29.com/en-gb/2020/12/10150275/shadow-ban-instagram-censorship-women-of-colour
+          </Link>
+        </Stack>
+      </Typography>
+    </Stack>
   );
 }

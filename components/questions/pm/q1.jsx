@@ -36,3 +36,9 @@ export default function Q1({ item }) {
     </Container>
   );
 }
+
+export function info() {
+  return (
+    <Typography>We’ll revisit your choices later in the case study!</Typography>
+  );
+}

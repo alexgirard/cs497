@@ -20,11 +20,11 @@ import DQ4 from '../components/questions/designer/q4';
 import DQ5 from '../components/questions/designer/q5';
 import DQ6 from '../components/questions/designer/q6';
 import PMIntro from '../components/questions/pm/intro';
-import PMQ1 from '../components/questions/pm/q1';
-import PMQ2 from '../components/questions/pm/q2';
-import PMQ3 from '../components/questions/pm/q3';
-import PMQ4 from '../components/questions/pm/q4';
-import PMQ5 from '../components/questions/pm/q5';
+import PMQ1, { info as PMQ1Info } from '../components/questions/pm/q1';
+import PMQ2, { info as PMQ2Info } from '../components/questions/pm/q2';
+import PMQ3, { info as PMQ3Info } from '../components/questions/pm/q3';
+import PMQ4, { info as PMQ4Info } from '../components/questions/pm/q4';
+import PMQ5, { info as PMQ5Info } from '../components/questions/pm/q5';
 import { table, minifyItems } from '../utils/Airtable';
 import { ItemsContext } from '../context/items';
 
@@ -162,37 +162,31 @@ export default function Home({ initialItems }) {
               label: 'PM Q1',
               hidden: true,
               component: () => <PMQ1 item={item} />,
-              info: 'test',
+              info: <PMQ1Info />,
             },
             {
               label: 'PM Q2',
               hidden: true,
               component: () => <PMQ2 item={item} />,
-              info: 'test',
+              info: <PMQ2Info />,
             },
             {
               label: 'PM Q3',
               hidden: true,
               component: () => <PMQ3 item={item} />,
-              info: 'test',
+              info: <PMQ3Info />,
             },
             {
               label: 'PM Q4',
               hidden: true,
               component: () => <PMQ4 item={item} />,
-              info: 'test',
-            },
-            {
-              label: 'PM Q4',
-              hidden: true,
-              component: () => <PMQ4 item={item} />,
-              info: 'test',
+              info: <PMQ4Info />,
             },
             {
               label: 'PM Q5',
               hidden: true,
               component: () => <PMQ5 item={item} />,
-              info: 'test',
+              info: <PMQ5Info />,
             },
             {
               label: 'Thanks!',
