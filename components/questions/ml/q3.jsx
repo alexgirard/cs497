@@ -68,22 +68,24 @@ export function info() {
         One’s accent can affect how they are perceived, and this is also
         reflected in the algorithms that exist in our technology.
       </Typography>
-      <Stack>
-        <Link
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://venturebeat.com/2021/04/01/study-finds-that-even-the-best-speech-recognition-systems-exhibit-bias/"
-        >
-          https://venturebeat.com/2021/04/01/study-finds-that-even-the-best-speech-recognition-systems-exhibit-bias/
-        </Link>
-        <Link
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.scientificamerican.com/article/speech-recognition-tech-is-yet-another-example-of-bias/"
-        >
-          https://www.scientificamerican.com/article/speech-recognition-tech-is-yet-another-example-of-bias/
-        </Link>
-      </Stack>
+      <Typography>
+        <Stack>
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://venturebeat.com/2021/04/01/study-finds-that-even-the-best-speech-recognition-systems-exhibit-bias/"
+          >
+            https://venturebeat.com/2021/04/01/study-finds-that-even-the-best-speech-recognition-systems-exhibit-bias/
+          </Link>
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.scientificamerican.com/article/speech-recognition-tech-is-yet-another-example-of-bias/"
+          >
+            https://www.scientificamerican.com/article/speech-recognition-tech-is-yet-another-example-of-bias/
+          </Link>
+        </Stack>
+      </Typography>
       <Typography>
         With a <b>localization-friendly algorithm</b>, we’re able to cover more
         markets than just English – improving accessibility for users outside of

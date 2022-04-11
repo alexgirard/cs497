@@ -50,22 +50,24 @@ export function info() {
         For us to use a well-known dataset, diversity in both gender and race is
         important for accurate results of expression detection.
       </Typography>
-      <Stack>
-        <Link
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://proceedings.mlr.press/v81/buolamwini18a.html"
-        >
-          https://proceedings.mlr.press/v81/buolamwini18a.html
-        </Link>
-        <Link
-          target="_blank"
-          rel="noopener noreferrer"
-          href="http://www.cs.toronto.edu/~bor/196f21/facial-recognition-nytimes.pdf"
-        >
-          http://www.cs.toronto.edu/~bor/196f21/facial-recognition-nytimes.pdf
-        </Link>
-      </Stack>
+      <Typography>
+        <Stack>
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://proceedings.mlr.press/v81/buolamwini18a.html"
+          >
+            https://proceedings.mlr.press/v81/buolamwini18a.html
+          </Link>
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="http://www.cs.toronto.edu/~bor/196f21/facial-recognition-nytimes.pdf"
+          >
+            http://www.cs.toronto.edu/~bor/196f21/facial-recognition-nytimes.pdf
+          </Link>
+        </Stack>
+      </Typography>
       <Typography>
         If you <b>create your own dataset</b>, you can consciously decide which
         facial elements should be used as variables. Although this may take more
