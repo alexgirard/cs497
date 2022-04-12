@@ -63,6 +63,42 @@ function ThanksCopy() {
         To see any of the resources again click{' '}
         <Link href="/resources">here</Link>.
       </Typography>
+      <br />
+      <Typography>
+        For any concerns, feel free to open a{' '}
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/alexgirard/cs497/issues"
+        >
+          Github Issue
+        </Link>
+        {' '}or reach out to any of the team:{' '}
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/alexgirard"
+        >
+          Alex
+        </Link>
+        ,{' '}
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/thgao"
+        >
+          Tina
+        </Link>
+        ,{' '}
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/ariellam"
+        >
+          Ariel
+        </Link>
+        .
+      </Typography>
     </Stack>
   );
 }
