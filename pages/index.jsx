@@ -13,12 +13,12 @@ import MLQ2, { info as MLQ2Info } from '../components/questions/ml/q2';
 import MLQ3, { info as MLQ3Info } from '../components/questions/ml/q3';
 import MLQ4, { info as MLQ4Info } from '../components/questions/ml/q4';
 import DIntro from '../components/questions/designer/intro';
-import DQ1 from '../components/questions/designer/q1';
-import DQ2 from '../components/questions/designer/q2';
-import DQ3 from '../components/questions/designer/q3';
-import DQ4 from '../components/questions/designer/q4';
-import DQ5 from '../components/questions/designer/q5';
-import DQ6 from '../components/questions/designer/q6';
+import DQ1, { info as DQ1Info } from '../components/questions/designer/q1';
+import DQ2, { info as DQ2Info } from '../components/questions/designer/q2';
+import DQ3, { info as DQ3Info } from '../components/questions/designer/q3';
+import DQ4, { info as DQ4Info } from '../components/questions/designer/q4';
+import DQ5, { info as DQ5Info } from '../components/questions/designer/q5';
+import DQ6, { info as DQ6Info } from '../components/questions/designer/q6';
 import PMIntro from '../components/questions/pm/intro';
 import PMQ1, { info as PMQ1Info } from '../components/questions/pm/q1';
 import PMQ2, { info as PMQ2Info } from '../components/questions/pm/q2';
@@ -121,36 +121,37 @@ export default function Home({ initialItems }) {
               label: 'Designer Q1',
               hidden: true,
               component: () => <DQ1 item={item} />,
-              info: 'test',
+              info: <DQ1Info />,
             },
             {
               label: 'Designer Q2',
               hidden: true,
               component: () => <DQ2 item={item} />,
-              info: 'test',
+              info: <DQ2Info />,
             },
             {
               label: 'Designer Q3',
               hidden: true,
               component: () => <DQ3 item={item} />,
-              info: 'test',
+              info: <DQ3Info />,
             },
             {
               label: 'Designer Q4',
               hidden: true,
               component: () => <DQ4 item={item} />,
+              info: <DQ4Info />,
             },
             {
               label: 'Designer Q5',
               hidden: true,
               component: () => <DQ5 item={item} />,
-              info: 'test',
+              info: <DQ5Info />,
             },
             {
               label: 'Designer Q6',
               hidden: true,
               component: () => <DQ6 item={item} />,
-              info: 'test',
+              info: <DQ6Info />,
             },
             {
               label: 'PM',
