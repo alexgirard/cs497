@@ -33,7 +33,8 @@ import PMQ5, { info as PMQ5Info } from '../components/questions/pm/q5';
 import PMQ6, { info as PMQ6Info } from '../components/questions/pm/q6';
 import { table, minifyItems } from '../utils/Airtable';
 import { ItemsContext } from '../context/items';
-import GenderStatsTOT from '../components/GenderStatsTOT';
+import GenderStats from '../components/GenderStats';
+import AgeStats from '../components/AgeStats';
 
 export async function getServerSideProps() {
   try {
@@ -117,13 +118,24 @@ export default function Home({ initialItems }) {
               hidden: true,
               component: () => <MLQ1 item={item} />,
               info: <MLQ1Info />,
-              stats: <GenderStatsTOT options={mlq1Options} field="mlq1" />,
+              stats: <GenderStats options={mlq1Options} field="mlq1" />,
             },
             {
               label: 'ML Engineer Q2',
               hidden: true,
               component: () => <MLQ2 item={item} />,
               info: <MLQ2Info />,
+              stats: (
+                <GenderStats
+                  type="rank"
+                  field="mlq2"
+                  options={[
+                    'Sensing changes in eyes',
+                    'Sensing changes in mouth',
+                    'Sensing changes in eyebrows',
+                  ]}
+                />
+              ),
             },
             {
               label: 'ML Engineer Q3',
@@ -131,7 +143,7 @@ export default function Home({ initialItems }) {
               component: () => <MLQ3 item={item} />,
               info: <MLQ3Info />,
               stats: (
-                <GenderStatsTOT
+                <GenderStats
                   field="mlq3"
                   options={[
                     'Precise algorithm',
@@ -145,6 +157,15 @@ export default function Home({ initialItems }) {
               hidden: true,
               component: () => <MLQ4 item={item} />,
               info: <MLQ4Info />,
+              stats: (
+                <AgeStats
+                  field="mlq4"
+                  options={[
+                    'Identify explicit words',
+                    'Analyze full sentiment',
+                  ]}
+                />
+              ),
             },
             {
               label: 'Designer',
