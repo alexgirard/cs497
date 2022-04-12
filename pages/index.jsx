@@ -10,7 +10,10 @@ import Welcome from '../components/Welcome';
 import Disclaimer from '../components/Disclaimer';
 import CaseStudy from '../components/CaseStudy';
 import MLIntro from '../components/questions/ml/intro';
-import MLQ1, { info as MLQ1Info } from '../components/questions/ml/q1';
+import MLQ1, {
+  info as MLQ1Info,
+  options as mlq1Options,
+} from '../components/questions/ml/q1';
 import MLQ2, { info as MLQ2Info } from '../components/questions/ml/q2';
 import MLQ3, { info as MLQ3Info } from '../components/questions/ml/q3';
 import MLQ4, { info as MLQ4Info } from '../components/questions/ml/q4';
@@ -30,6 +33,7 @@ import PMQ5, { info as PMQ5Info } from '../components/questions/pm/q5';
 import PMQ6, { info as PMQ6Info } from '../components/questions/pm/q6';
 import { table, minifyItems } from '../utils/Airtable';
 import { ItemsContext } from '../context/items';
+import GenderStatsTOT from '../components/GenderStatsTOT';
 
 export async function getServerSideProps() {
   try {
@@ -113,6 +117,7 @@ export default function Home({ initialItems }) {
               hidden: true,
               component: () => <MLQ1 item={item} />,
               info: <MLQ1Info />,
+              stats: <GenderStatsTOT options={mlq1Options} field="mlq1" />,
             },
             {
               label: 'ML Engineer Q2',
@@ -125,6 +130,15 @@ export default function Home({ initialItems }) {
               hidden: true,
               component: () => <MLQ3 item={item} />,
               info: <MLQ3Info />,
+              stats: (
+                <GenderStatsTOT
+                  field="mlq3"
+                  options={[
+                    'Precise algorithm',
+                    'Localization-friendly algorithm',
+                  ]}
+                />
+              ),
             },
             {
               label: 'ML Engineer Q4',
