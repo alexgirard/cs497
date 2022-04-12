@@ -1,7 +1,7 @@
 import React from 'react';
 import Cookies from 'js-cookie';
 import { useMediaQuery } from 'react-responsive';
-import { Typography } from '@mui/material';
+import { Typography, Link } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import styles from '../styles/Home.module.css';
 import Stepper from '../components/Stepper';
@@ -57,6 +57,10 @@ function ThanksCopy() {
       <Typography>
         Now that you’ve completed the case study, we hope you learned new ways
         software products can impact individuals or communities.
+      </Typography>
+      <Typography>
+        To see any of the resources again click{' '}
+        <Link href="/resources">here</Link>.
       </Typography>
     </Stack>
   );
