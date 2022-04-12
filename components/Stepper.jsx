@@ -78,7 +78,7 @@ export default function HorizontalNonLinearStepper(props) {
 
   const StepComponent = steps[activeStep]?.component;
   const StepInfo = steps[activeStep]?.info;
-  console.log(stepHasInfo(), showInfo);
+  const StepStats = steps[activeStep]?.stats;
 
   return (
     <Box
@@ -116,6 +116,7 @@ export default function HorizontalNonLinearStepper(props) {
           <InfoWrapper
             component={StepComponent}
             info={showInfo[activeStep] && StepInfo}
+            stats={showInfo[activeStep] && StepStats}
             {...restProps}
           />
         ) : (
