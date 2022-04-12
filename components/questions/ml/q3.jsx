@@ -53,9 +53,10 @@ export function info() {
     <Stack spacing={2}>
       <Typography>
         With a <b>precise algorithm that can understand English phrases</b>,
-        we’re able to catch most of the hateful language and comments. However,
-        users have found ways to circumvent this by saying insults in other
-        languages.
+        we’re able to process most users’ commands at a high accuracy rate.
+        However, for users who are not as fluent in English, or speak with an
+        accent, they may experience difficulties using voice recognition
+        technology.
       </Typography>
       <Typography>
         On average, the error rates for voice recognition systems are

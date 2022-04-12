@@ -71,6 +71,10 @@ export function info() {
         </Link>
       </Typography>
       <Typography>
+        By asking for both first and last name, we could be excluding users
+        whose cultures do not follow this standard.
+      </Typography>
+      <Typography>
         If we were to perform validation or length checking, we may also run
         into issues with the many combinations of last names with spaces or
         hyphens, short lengths of two characters (common with many Asian last
@@ -85,8 +89,8 @@ export function info() {
         </Link>
       </Typography>
       <Typography>
-        Both the second and third options will allow us to have users with the
-        freedom of typing out their name, without facing difficulty.
+        The third option will allow us to have users with the freedom of typing
+        out their name, without facing difficulty.
       </Typography>
     </Stack>
   );
