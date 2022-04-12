@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography , Link} from '@mui/material';
+import { Typography, Link } from '@mui/material';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
@@ -42,28 +42,15 @@ export default function Q5({ item }) {
 export function info() {
   return (
     <Stack spacing={2}>
-      <Typography>
-       g
-      </Typography>
-      <Typography>
-      3
-      </Typography>
-      <Typography>
-1
-      </Typography>
+      <Typography>g</Typography>
+      <Typography>3</Typography>
+      <Typography>1</Typography>
       <Typography>
         <Stack>
-          <Link
-            target="_blank"
-            rel="noopener noreferrer"
-            href=""
-          > 
-          </Link>
+          <Link target="_blank" rel="noopener noreferrer" href="" />
         </Stack>
       </Typography>
-      <Typography>
-       test
-      </Typography>
+      <Typography>test</Typography>
     </Stack>
   );
-  }
+}
