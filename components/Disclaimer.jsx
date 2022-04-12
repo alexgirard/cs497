@@ -1,6 +1,7 @@
 import React from 'react';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 
@@ -28,7 +29,15 @@ export default function Disclaimer({ email, setEmail }) {
       </Typography>
       <Typography>
         If you wish to remove your data from our service at any time, please
-        create a Github Issue or contact us directly.
+        create a{' '}
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/alexgirard/cs497/issues"
+        >
+          Github Issue
+        </Link>{' '}
+        or contact us directly.
       </Typography>
       <Typography>
         By adding your email and clicking next you accept to the statements
