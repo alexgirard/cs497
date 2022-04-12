@@ -78,7 +78,6 @@ export default function HorizontalNonLinearStepper(props) {
 
   const StepComponent = steps[activeStep]?.component;
   const StepInfo = steps[activeStep]?.info;
-  console.log(stepHasInfo(), showInfo);
 
   return (
     <Box
@@ -110,7 +109,7 @@ export default function HorizontalNonLinearStepper(props) {
         {/* eslint-disable-next-line no-nested-ternary */}
         {allStepsCompleted() ? (
           <Typography sx={{ mt: 2, mb: 1 }}>
-            All steps completed TODO: add a finished results blurb
+            To revisit the case study, press Restart!
           </Typography>
         ) : stepHasInfo() ? (
           <InfoWrapper

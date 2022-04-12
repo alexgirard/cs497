@@ -1,6 +1,8 @@
 import React from 'react';
 import Cookies from 'js-cookie';
 import { useMediaQuery } from 'react-responsive';
+import { Typography } from '@mui/material';
+import Stack from '@mui/material/Stack';
 import styles from '../styles/Home.module.css';
 import Stepper from '../components/Stepper';
 import Demographics from '../components/Demographics';
@@ -44,6 +46,20 @@ export async function getServerSideProps() {
       },
     };
   }
+}
+
+function ThanksCopy() {
+  return (
+    <Stack spacing={2}>
+      <Typography>
+        You’re now ready to launch BetterWorld, thanks for playing along!
+      </Typography>
+      <Typography>
+        Now that you’ve completed the case study, we hope you learned new ways
+        software products can impact individuals or communities.
+      </Typography>
+    </Stack>
+  );
 }
 
 export default function Home({ initialItems }) {
@@ -192,7 +208,7 @@ export default function Home({ initialItems }) {
             {
               label: 'Thanks!',
               stepLabel: isSmallDevice ? 5 : 8,
-              component: () => <p>thank you! here's some more copy</p>,
+              component: () => <ThanksCopy />,
             },
           ]}
           items={items}
