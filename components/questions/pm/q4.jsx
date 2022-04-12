@@ -70,6 +70,21 @@ export function info() {
           </Link>
         </Stack>
       </Typography>
+      <Typography>
+        Speech on online platforms is not a simple discussion. It is difficult
+        to draw the line between protecting free expression vs protecting users
+        against hate. The article below touches on the complexities of
+        responsibility both for social media companies and the government:
+        <Stack>
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.theatlantic.com/ideas/archive/2019/09/facebook-restricts-free-speech-popular-demand/598462/"
+          >
+            https://www.theatlantic.com/ideas/archive/2019/09/facebook-restricts-free-speech-popular-demand/598462/
+          </Link>
+        </Stack>
+      </Typography>
     </Stack>
   );
 }

@@ -304,6 +304,18 @@ export default function Resources() {
               </Stack>
             </Typography>
             <Typography>
+              Free speech and social media:
+              <Stack>
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.theatlantic.com/ideas/archive/2019/09/facebook-restricts-free-speech-popular-demand/598462/"
+                >
+                  https://www.theatlantic.com/ideas/archive/2019/09/facebook-restricts-free-speech-popular-demand/598462/
+                </Link>
+              </Stack>
+            </Typography>
+            <Typography>
               Negative impacts of social media on mental health:
               <Stack>
                 <Link
