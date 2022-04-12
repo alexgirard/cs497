@@ -93,6 +93,14 @@ export function info() {
         aren’t properly understood by the machine, turning them away from using
         the voice feature entirely. Often, users will turn to typing on their
         keyboard when all else fails.
+        <br />
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://themanifest.com/digital-marketing/resources/siri-alexa-fails-frustrations-with-voice-search"
+        >
+          https://themanifest.com/digital-marketing/resources/siri-alexa-fails-frustrations-with-voice-search
+        </Link>
       </Typography>
     </Stack>
   );

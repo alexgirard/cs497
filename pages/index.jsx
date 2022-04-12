@@ -59,7 +59,8 @@ function ThanksCopy() {
         software products can impact individuals or communities.
       </Typography>
       <Typography>
-      To see any of the resources again click{' '}<Link href="/resources">here</Link>.
+        To see any of the resources again click{' '}
+        <Link href="/resources">here</Link>.
       </Typography>
     </Stack>
   );
