@@ -61,7 +61,7 @@ export function info() {
         as drag queens. When an account is flagged as using a fake name, they’ll
         be locked out, stating they must provide ID or change their name before
         regaining access.
-        <br/>
+        <br />
         <Link
           target="_blank"
           rel="noopener noreferrer"
@@ -75,7 +75,7 @@ export function info() {
         into issues with the many combinations of last names with spaces or
         hyphens, short lengths of two characters (common with many Asian last
         names), longer last names (seen in Hawaiian citizens) or apostrophes.
-        <br/>
+        <br />
         <Link
           target="_blank"
           rel="noopener noreferrer"

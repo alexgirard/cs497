@@ -42,15 +42,26 @@ export default function Q5({ item }) {
 export function info() {
   return (
     <Stack spacing={2}>
-      <Typography>g</Typography>
-      <Typography>3</Typography>
-      <Typography>1</Typography>
       <Typography>
-        <Stack>
-          <Link target="_blank" rel="noopener noreferrer" href="" />
-        </Stack>
+        The decision of localization can have impacts on how well your product
+        is received in global markets. Although at first glance, it may sound as
+        simple as translating all text into other languages – but it extends far
+        beyond just words. In other cultures, there may be gestures, symbols, or
+        imagery that should be changed as it is not longer appropriate. As well,
+        for some languages, text may need to be written right-to-left, or
+        special characters such as Chinese and Japanese need to be supported.
+        This is a crucial part of inclusive design, as other locales should feel
+        comfortable using the app in their native language or region with as
+        smooth of a user interface as English speakers.
+        <br />
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.forbes.com/sites/forbesbusinesscouncil/2022/01/24/three-important-aspects-of-localization-often-overlooked-by-small-businesses/?sh=697ad3b92847"
+        >
+          https://www.forbes.com/sites/forbesbusinesscouncil/2022/01/24/three-important-aspects-of-localization-often-overlooked-by-small-businesses/?sh=697ad3b92847
+        </Link>
       </Typography>
-      <Typography>test</Typography>
     </Stack>
   );
 }
