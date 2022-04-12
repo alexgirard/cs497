@@ -1,6 +1,8 @@
 import React from 'react';
 import Cookies from 'js-cookie';
 import { useMediaQuery } from 'react-responsive';
+import { Typography } from '@mui/material';
+import Stack from '@mui/material/Stack';
 import styles from '../styles/Home.module.css';
 import Stepper from '../components/Stepper';
 import Demographics from '../components/Demographics';
@@ -27,8 +29,6 @@ import PMQ4, { info as PMQ4Info } from '../components/questions/pm/q4';
 import PMQ5, { info as PMQ5Info } from '../components/questions/pm/q5';
 import { table, minifyItems } from '../utils/Airtable';
 import { ItemsContext } from '../context/items';
-import { Typography } from '@mui/material';
-import Stack from '@mui/material/Stack';
 
 export async function getServerSideProps() {
   try {
@@ -49,16 +49,17 @@ export async function getServerSideProps() {
 }
 
 function ThanksCopy() {
-  return(
+  return (
     <Stack spacing={2}>
       <Typography>
-      You’re now ready to launch BetterWorld, thanks for playing along!
+        You’re now ready to launch BetterWorld, thanks for playing along!
       </Typography>
       <Typography>
-      Now that you’ve completed the case study, we hope you learned new ways software products can impact individuals or communities.
+        Now that you’ve completed the case study, we hope you learned new ways
+        software products can impact individuals or communities.
       </Typography>
     </Stack>
-  )
+  );
 }
 
 export default function Home({ initialItems }) {
@@ -207,7 +208,7 @@ export default function Home({ initialItems }) {
             {
               label: 'Thanks!',
               stepLabel: isSmallDevice ? 5 : 8,
-              component: () => <ThanksCopy/>,
+              component: () => <ThanksCopy />,
             },
           ]}
           items={items}
