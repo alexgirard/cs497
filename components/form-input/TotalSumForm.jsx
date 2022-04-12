@@ -69,7 +69,14 @@ export const CounterButton = ({
   </Box>
 );
 
-export function TotalSumForm({ item, title, children, total, fieldName }) {
+export function TotalSumForm({
+  item,
+  title,
+  children,
+  total,
+  fieldName,
+  defaultValFieldName,
+}) {
   const { updateItem } = useContext(ItemsContext);
 
   const counterStates = {};
@@ -85,8 +92,15 @@ export function TotalSumForm({ item, title, children, total, fieldName }) {
     // Runs only the first time item variable gets set from undefined
     // Set initial state from Airtable
     const stateString = item?.fields[fieldName];
+    const defaultStateString = item?.fields[defaultValFieldName];
     if (stateString) {
       const stateObject = JSON.parse(stateString);
+      Object.keys(counterStates).forEach((key) => {
+        const [, setCounter] = counterStates[key];
+        setCounter(stateObject[key]);
+      });
+    } else if (defaultValFieldName && defaultStateString) {
+      const stateObject = JSON.parse(defaultStateString);
       Object.keys(counterStates).forEach((key) => {
         const [, setCounter] = counterStates[key];
         setCounter(stateObject[key]);

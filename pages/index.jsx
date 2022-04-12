@@ -27,6 +27,7 @@ import PMQ2, { info as PMQ2Info } from '../components/questions/pm/q2';
 import PMQ3, { info as PMQ3Info } from '../components/questions/pm/q3';
 import PMQ4, { info as PMQ4Info } from '../components/questions/pm/q4';
 import PMQ5, { info as PMQ5Info } from '../components/questions/pm/q5';
+import PMQ6, { info as PMQ6Info } from '../components/questions/pm/q6';
 import { table, minifyItems } from '../utils/Airtable';
 import { ItemsContext } from '../context/items';
 
@@ -208,6 +209,12 @@ export default function Home({ initialItems }) {
               hidden: true,
               component: () => <PMQ5 item={item} />,
               info: <PMQ5Info />,
+            },
+            {
+              label: 'PM Q6',
+              hidden: true,
+              component: () => <PMQ6 item={item} />,
+              info: <PMQ6Info />,
             },
             {
               label: 'Thanks!',
