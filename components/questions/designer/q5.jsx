@@ -3,6 +3,7 @@ import { Typography, Link } from '@mui/material';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
+import Image from 'next/image';
 import {
   ThisOrThatForm,
   ThisOrThatOption,
@@ -31,8 +32,12 @@ export default function Q5({ item }) {
           item={item}
           fieldName="dq5.1"
         >
-          <ThisOrThatOption>TODO1</ThisOrThatOption>
-          <ThisOrThatOption>TODO2</ThisOrThatOption>
+          <ThisOrThatOption>
+            <Image src="/images/2-1.png" width="548" height="308" />
+          </ThisOrThatOption>
+          <ThisOrThatOption>
+            <Image src="/images/2-2.png" width="548" height="308" />
+          </ThisOrThatOption>
         </ThisOrThatForm>
         <ThisOrThatForm
           title="Which way to navigate in a store is better?"
@@ -52,8 +57,12 @@ export default function Q5({ item }) {
           item={item}
           fieldName="dq5.3"
         >
-          <ThisOrThatOption>TODO1</ThisOrThatOption>
-          <ThisOrThatOption>TODO2</ThisOrThatOption>
+          <ThisOrThatOption>
+            <Image src="/images/1-1.png" width="548" height="308" />
+          </ThisOrThatOption>
+          <ThisOrThatOption>
+            <Image src="/images/1-2.png" width="548" height="308" />
+          </ThisOrThatOption>
         </ThisOrThatForm>
       </Box>
     </Container>
