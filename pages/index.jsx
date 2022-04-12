@@ -72,8 +72,8 @@ function ThanksCopy() {
           href="https://github.com/alexgirard/cs497/issues"
         >
           Github Issue
-        </Link>
-        {' '}or reach out to any of the team:{' '}
+        </Link>{' '}
+        or reach out to any of the team:{' '}
         <Link
           target="_blank"
           rel="noopener noreferrer"
