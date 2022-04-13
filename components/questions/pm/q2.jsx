@@ -8,6 +8,18 @@ import {
   MultiSelectOption,
 } from '../../form-input/MultiSelectForm';
 
+export const options = [
+  'Race or ethnicity',
+  'Music interests',
+  'Religious affiliations',
+  'Nationality',
+  'Sexual orientation',
+  'Age demographics',
+  'Sports interests',
+  'Gender-based groups',
+  'Political beliefs',
+];
+
 export default function Q2({ item }) {
   return (
     <Container width="100%">
@@ -24,15 +36,9 @@ export default function Q2({ item }) {
           item={item}
           fieldName="pmq2"
         >
-          <MultiSelectOption value="1" label="Race or ethnicity." />
-          <MultiSelectOption value="2" label="Music interests." />
-          <MultiSelectOption value="3" label="Religious affiliations." />
-          <MultiSelectOption value="4" label="Nationality." />
-          <MultiSelectOption value="5" label="Sexual orientation." />
-          <MultiSelectOption value="6" label="Age demographics." />
-          <MultiSelectOption value="7" label="Sports interests." />
-          <MultiSelectOption value="8" label="Gender-based groups." />
-          <MultiSelectOption value="9" label="Political beliefs." />
+          {options.map((o, index) => (
+            <MultiSelectOption value={index + 1} label={o} />
+          ))}
         </MultiSelectForm>
       </Box>
     </Container>

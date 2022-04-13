@@ -8,6 +8,14 @@ import {
   MultiSelectOption,
 } from '../../form-input/MultiSelectForm';
 
+export const options = [
+  'A way to report users and ban them',
+  'A way for users to block other users',
+  'Showing a list of nearby users while in-game',
+  'Have moderators be present in social spaces',
+  'Turn off voice chat or text chat for specific users',
+];
+
 export default function Q4({ item }) {
   return (
     <Container width="100%">
@@ -34,26 +42,9 @@ export default function Q4({ item }) {
           item={item}
           fieldName="dq4"
         >
-          <MultiSelectOption
-            value="1"
-            label="A way to report users and ban them. "
-          />
-          <MultiSelectOption
-            value="2"
-            label="A way for users to block other users."
-          />
-          <MultiSelectOption
-            value="3"
-            label="Showing a list of nearby users while in-game."
-          />
-          <MultiSelectOption
-            value="4"
-            label="Have moderators be present in social spaces."
-          />
-          <MultiSelectOption
-            value="5"
-            label="Turn off voice chat or text chat for specific users."
-          />
+          {options.map((o, index) => (
+            <MultiSelectOption value={index + 1} label={o} />
+          ))}
         </MultiSelectForm>
       </Box>
     </Container>

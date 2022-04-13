@@ -8,6 +8,8 @@ import {
   ThisOrThatOption,
 } from '../../form-input/ThisOrThatForm';
 
+export const options = ['Use a well-known dataset', 'Create your own dataset'];
+
 export default function Q1({ item }) {
   return (
     <Container width="100%">
@@ -23,8 +25,8 @@ export default function Q1({ item }) {
           item={item}
           fieldName="mlq1"
         >
-          <ThisOrThatOption>Use a well-known dataset.</ThisOrThatOption>
-          <ThisOrThatOption>Create your own dataset.</ThisOrThatOption>
+          <ThisOrThatOption>{options[0]}</ThisOrThatOption>
+          <ThisOrThatOption>{options[1]}</ThisOrThatOption>
         </ThisOrThatForm>
       </Box>
     </Container>

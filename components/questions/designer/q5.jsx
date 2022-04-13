@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typography, Link } from '@mui/material';
+import FormLabel from '@mui/material/FormLabel';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
@@ -8,6 +9,33 @@ import {
   ThisOrThatForm,
   ThisOrThatOption,
 } from '../../form-input/ThisOrThatForm';
+import AgeStats from '../../AgeStats';
+
+export function Stats() {
+  return (
+    <Stack spacing={3}>
+      <Box>
+        <FormLabel mb={3}>
+          Which way to present shopping listings is better?
+        </FormLabel>
+        <Box mb={2} />
+        <AgeStats field="dq5.1" options={['Left image', 'Right image']} />
+      </Box>
+      <Box pt={3}>
+        <FormLabel mb={3}>
+          Which way to navigate in a store is better?
+        </FormLabel>
+        <Box mb={2} />
+        <AgeStats field="dq5.2" options={['Press buttons', 'Turn around']} />
+      </Box>
+      <Box pt={3}>
+        <FormLabel>Which colour combination is better?</FormLabel>
+        <Box mb={2} />
+        <AgeStats field="dq5.3" options={['Left image', 'Right image']} />
+      </Box>
+    </Stack>
+  );
+}
 
 export default function Q5({ item }) {
   return (
