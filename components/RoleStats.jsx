@@ -40,7 +40,7 @@ export default function Stats({ type, field, options }) {
   switch (type) {
     case 'rank':
       func = getRankings;
-      titlePrefix = 'rankings';
+      titlePrefix = 'ranked results';
       break;
     case 'multi':
       func = getOptionStats;
@@ -52,10 +52,14 @@ export default function Stats({ type, field, options }) {
       break;
   }
 
+  const allPrefix = `${
+    titlePrefix[0].toUpperCase() + titlePrefix.substring(1)
+  }:`;
+
   return (
     <StatContainer
       stats={[
-        func(data, `Total ${titlePrefix}:`, options, field),
+        func(data, allPrefix, options, field),
         func(studentData, `Student ${titlePrefix}:`, options, field),
         func(educatorData, `Educator ${titlePrefix}:`, options, field),
         func(industryData, `Industry ${titlePrefix}:`, options, field),

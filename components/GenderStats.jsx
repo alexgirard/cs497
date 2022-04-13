@@ -8,7 +8,15 @@ export const getPercentages = (data, title, options, field) => {
   const filteredVals = values.filter((x) => x !== undefined);
   const total = filteredVals.length;
   const uniqueItems = [...new Set(filteredVals)].sort();
-  if (uniqueItems.length === 0) return undefined;
+  if (uniqueItems.length === 0) {
+    return (
+      <Box>
+        <strong>{title}</strong>
+        <br />
+        No results
+      </Box>
+    );
+  }
 
   return (
     <Box>
@@ -44,7 +52,15 @@ export const getRankings = (data, title, options, field) => {
     return r;
   }, ranks);
   const sortedRanks = Object.entries(ranks).sort(([, v1], [, v2]) => v2 - v1);
-  if (Object.entries(sortedRanks).length === 0) return undefined;
+  if (Object.entries(sortedRanks).length === 0) {
+    return (
+      <Box>
+        <strong>{title}</strong>
+        <br />
+        No results
+      </Box>
+    );
+  }
 
   return (
     <Box>
@@ -71,7 +87,15 @@ export const getOptionStats = (data, title, options, field) => {
     return r;
   }, optionTotals);
   const total = readableVals.length;
-  if (total === 0) return undefined;
+  if (total === 0) {
+    return (
+      <Box>
+        <strong>{title}</strong>
+        <br />
+        No results
+      </Box>
+    );
+  }
 
   const optionPercentages = Object.keys(optionTotals).map((o) => {
     const percentageValue = (optionTotals[o] * 100) / total;
@@ -120,7 +144,7 @@ export default function Stats({ type, field, options }) {
   switch (type) {
     case 'rank':
       func = getRankings;
-      titlePrefix = 'rankings';
+      titlePrefix = 'ranked results';
       break;
     case 'multi':
       func = getOptionStats;
@@ -132,10 +156,14 @@ export default function Stats({ type, field, options }) {
       break;
   }
 
+  const allPrefix = `${
+    titlePrefix[0].toUpperCase() + titlePrefix.substring(1)
+  }:`;
+
   return (
     <StatContainer
       stats={[
-        func(data, `Total ${titlePrefix}:`, options, field),
+        func(data, allPrefix, options, field),
         func(femaleData, `Female ${titlePrefix}:`, options, field),
         func(maleData, `Male ${titlePrefix}:`, options, field),
         func(otherData, `Other Gender ${titlePrefix}:`, options, field),
