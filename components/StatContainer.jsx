@@ -8,7 +8,7 @@ export default function StatContainer({ stats }) {
   const isSmallDevice = useMediaQuery({ query: '(max-width: 600px)' });
   const filteredStats = stats.filter((x) => x !== undefined);
   return (
-    <Grid container spacing={4} justifyContent="center" maxWidth={1000}>
+    <Grid container spacing={3} justifyContent="center" maxWidth={1000}>
       {filteredStats.map((stat, index) => {
         const oddRow = (index + 1) % 4 === 1 || (index + 1) % 4 === 2;
         const firstPos = index % 2 === 0;

@@ -8,6 +8,14 @@ import {
   MultiSelectOption,
 } from '../../form-input/MultiSelectForm';
 
+export const options = [
+  'Verify users with government ID',
+  'Specify first name and last name on registration',
+  'Allow free form name input',
+  'Perform validation on names to ensure people aren’t using random letters',
+  'Perform length checking',
+];
+
 export default function Q3({ item }) {
   return (
     <Container width="100%">
@@ -25,20 +33,9 @@ export default function Q3({ item }) {
           item={item}
           fieldName="dq3"
         >
-          <MultiSelectOption
-            value="1"
-            label="Verify users with government ID."
-          />
-          <MultiSelectOption
-            value="2"
-            label="Specify first name and last name on registration."
-          />
-          <MultiSelectOption value="3" label="Allow free form name input." />
-          <MultiSelectOption
-            value="4"
-            label="Perform validation on names to ensure people aren’t using random letters."
-          />
-          <MultiSelectOption value="5" label="Perform length checking." />
+          {options.map((o, index) => (
+            <MultiSelectOption value={index + 1} label={o} />
+          ))}
         </MultiSelectForm>
       </Box>
     </Container>

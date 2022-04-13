@@ -1,7 +1,7 @@
 import React from 'react';
 import { table, minifyItems } from '../utils/Airtable';
 import StatContainer from './StatContainer';
-import { getPercentages, getRankings } from './GenderStats';
+import { getPercentages, getRankings, getOptionStats } from './GenderStats';
 
 export default function Stats({ type, field, options }) {
   const [data, setData] = React.useState(null);
@@ -35,17 +35,31 @@ export default function Stats({ type, field, options }) {
     setSixtyData(minifyItems(getSixtyItems));
   }, []);
 
-  const func = type === 'rank' ? getRankings : getPercentages;
-  const titlePrefix = type === 'rank' ? 'rankings' : 'results';
+  let func;
+  let titlePrefix;
+  switch (type) {
+    case 'rank':
+      func = getRankings;
+      titlePrefix = 'rankings';
+      break;
+    case 'multi':
+      func = getOptionStats;
+      titlePrefix = 'selections';
+      break;
+    default:
+      func = getPercentages;
+      titlePrefix = 'results';
+      break;
+  }
 
   return (
     <StatContainer
       stats={[
         func(data, `Total ${titlePrefix}:`, options, field),
-        func(zeroData, `0 - 18 ${titlePrefix}:`, options, field),
-        func(eighteenData, `18 - 30 ${titlePrefix}:`, options, field),
-        func(thirtyData, `30 - 60 ${titlePrefix}:`, options, field),
-        func(sixtyData, `60 + ${titlePrefix}:`, options, field),
+        func(zeroData, `Age 0 - 18 ${titlePrefix}:`, options, field),
+        func(eighteenData, `Age 18 - 30 ${titlePrefix}:`, options, field),
+        func(thirtyData, `Age 30 - 60 ${titlePrefix}:`, options, field),
+        func(sixtyData, `Age 60 + ${titlePrefix}:`, options, field),
       ]}
     />
   );

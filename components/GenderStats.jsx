@@ -56,6 +56,39 @@ export const getRankings = (data, title, options, field) => {
   );
 };
 
+export const getOptionStats = (data, title, options, field) => {
+  const values = data?.map((row) => row.fields[field]) ?? [];
+  const filteredVals = values.filter((x) => x !== undefined);
+
+  const optionTotals = {};
+  const readableVals = filteredVals.map((v) => JSON.parse(v));
+  readableVals.reduce((r, val) => {
+    Object.keys(val).forEach((k) => {
+      /* eslint-disable no-param-reassign */
+      if (!r[k]) r[k] = 0;
+      if (val[k]) r[k] += 1;
+    });
+    return r;
+  }, optionTotals);
+  const total = readableVals.length;
+  if (total === 0) return undefined;
+
+  const optionPercentages = Object.keys(optionTotals).map((o) => {
+    const percentageValue = (optionTotals[o] * 100) / total;
+    const val = Math.round(percentageValue * 100) / 100;
+    return [o, val];
+  });
+
+  return (
+    <Box>
+      <strong>{title}</strong>
+      {optionPercentages.map(([option, percent]) => (
+        <div>{`${percent}% selected ${options[option]}`}</div>
+      ))}
+    </Box>
+  );
+};
+
 export default function Stats({ type, field, options }) {
   const [data, setData] = React.useState(null);
   const [femaleData, setFemaleData] = React.useState(null);
@@ -82,8 +115,22 @@ export default function Stats({ type, field, options }) {
     setOtherData(minifyItems(getOtherItems));
   }, []);
 
-  const func = type === 'rank' ? getRankings : getPercentages;
-  const titlePrefix = type === 'rank' ? 'rankings' : 'results';
+  let func;
+  let titlePrefix;
+  switch (type) {
+    case 'rank':
+      func = getRankings;
+      titlePrefix = 'rankings';
+      break;
+    case 'multi':
+      func = getOptionStats;
+      titlePrefix = 'selections';
+      break;
+    default:
+      func = getPercentages;
+      titlePrefix = 'results';
+      break;
+  }
 
   return (
     <StatContainer

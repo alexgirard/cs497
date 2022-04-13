@@ -20,21 +20,37 @@ import MLQ4, { info as MLQ4Info } from '../components/questions/ml/q4';
 import DIntro from '../components/questions/designer/intro';
 import DQ1, { info as DQ1Info } from '../components/questions/designer/q1';
 import DQ2, { info as DQ2Info } from '../components/questions/designer/q2';
-import DQ3, { info as DQ3Info } from '../components/questions/designer/q3';
-import DQ4, { info as DQ4Info } from '../components/questions/designer/q4';
-import DQ5, { info as DQ5Info } from '../components/questions/designer/q5';
+import DQ3, {
+  info as DQ3Info,
+  options as DQ3Options,
+} from '../components/questions/designer/q3';
+import DQ4, {
+  info as DQ4Info,
+  options as DQ4Options,
+} from '../components/questions/designer/q4';
+import DQ5, {
+  info as DQ5Info,
+  Stats as DQ5Stats,
+} from '../components/questions/designer/q5';
 import DQ6, { info as DQ6Info } from '../components/questions/designer/q6';
 import PMIntro from '../components/questions/pm/intro';
 import PMQ1, { info as PMQ1Info } from '../components/questions/pm/q1';
-import PMQ2, { info as PMQ2Info } from '../components/questions/pm/q2';
+import PMQ2, {
+  info as PMQ2Info,
+  options as PMQ2Options,
+} from '../components/questions/pm/q2';
 import PMQ3, { info as PMQ3Info } from '../components/questions/pm/q3';
 import PMQ4, { info as PMQ4Info } from '../components/questions/pm/q4';
 import PMQ5, { info as PMQ5Info } from '../components/questions/pm/q5';
-import PMQ6, { info as PMQ6Info } from '../components/questions/pm/q6';
+import PMQ6, {
+  info as PMQ6Info,
+  Stats as PMQ6Stats,
+} from '../components/questions/pm/q6';
 import { table, minifyItems } from '../utils/Airtable';
 import { ItemsContext } from '../context/items';
 import GenderStats from '../components/GenderStats';
 import AgeStats from '../components/AgeStats';
+import RoleStats from '../components/RoleStats';
 
 export async function getServerSideProps() {
   try {
@@ -178,36 +194,71 @@ export default function Home({ initialItems }) {
               hidden: true,
               component: () => <DQ1 item={item} />,
               info: <DQ1Info />,
+              stats: (
+                <RoleStats
+                  type="rank"
+                  field="dq1"
+                  options={[
+                    'Conduct user interviews',
+                    'Market research',
+                    'Diverse participant sample',
+                    'Designing for accessibility',
+                    'Create a physical prototype',
+                  ]}
+                />
+              ),
             },
             {
               label: 'Designer Q2',
               hidden: true,
               component: () => <DQ2 item={item} />,
               info: <DQ2Info />,
+              stats: (
+                <GenderStats
+                  field="dq2"
+                  options={[
+                    'Team and company members',
+                    'Diverse sample of potential users',
+                  ]}
+                />
+              ),
             },
             {
               label: 'Designer Q3',
               hidden: true,
               component: () => <DQ3 item={item} />,
               info: <DQ3Info />,
+              stats: <AgeStats type="multi" field="dq3" options={DQ3Options} />,
             },
             {
               label: 'Designer Q4',
               hidden: true,
               component: () => <DQ4 item={item} />,
               info: <DQ4Info />,
+              stats: <AgeStats type="multi" field="dq4" options={DQ4Options} />,
             },
             {
               label: 'Designer Q5',
               hidden: true,
               component: () => <DQ5 item={item} />,
               info: <DQ5Info />,
+              stats: <DQ5Stats />,
             },
             {
               label: 'Designer Q6',
               hidden: true,
               component: () => <DQ6 item={item} />,
               info: <DQ6Info />,
+              stats: (
+                <RoleStats
+                  field="dq6"
+                  options={[
+                    'Only English => launch in 1 month',
+                    'Translate all text => launch in 4 months',
+                    'Full localization => launch in 1 year',
+                  ]}
+                />
+              ),
             },
             {
               label: 'PM',
@@ -226,30 +277,62 @@ export default function Home({ initialItems }) {
               hidden: true,
               component: () => <PMQ2 item={item} />,
               info: <PMQ2Info />,
+              stats: (
+                <GenderStats type="multi" field="pmq2" options={PMQ2Options} />
+              ),
             },
             {
               label: 'PM Q3',
               hidden: true,
               component: () => <PMQ3 item={item} />,
               info: <PMQ3Info />,
+              stats: (
+                <RoleStats
+                  field="pmq3"
+                  options={[
+                    'Tiered subscription, delayed revenue',
+                    'Sell initial user data for short term',
+                  ]}
+                />
+              ),
             },
             {
               label: 'PM Q4',
               hidden: true,
               component: () => <PMQ4 item={item} />,
               info: <PMQ4Info />,
+              stats: (
+                <AgeStats
+                  field="pmq4"
+                  options={[
+                    'Do nothing',
+                    'Flag and give warnings',
+                    'Remove all content',
+                  ]}
+                />
+              ),
             },
             {
               label: 'PM Q5',
               hidden: true,
               component: () => <PMQ5 item={item} />,
               info: <PMQ5Info />,
+              stats: (
+                <AgeStats
+                  field="pmq5"
+                  options={[
+                    'Implement playtime limits for users',
+                    'Give users tools to impose own limits',
+                  ]}
+                />
+              ),
             },
             {
               label: 'PM Q6',
               hidden: true,
               component: () => <PMQ6 item={item} />,
               info: <PMQ6Info />,
+              stats: <PMQ6Stats item={item} />,
             },
             {
               label: 'Thanks!',
@@ -261,7 +344,6 @@ export default function Home({ initialItems }) {
           email={email}
           setEmail={setEmail}
           updateEmail={updateEmail}
-          // refresh={refresh}
         />
       </main>
     </div>

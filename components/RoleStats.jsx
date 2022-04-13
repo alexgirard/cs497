@@ -1,7 +1,7 @@
 import React from 'react';
 import { table, minifyItems } from '../utils/Airtable';
 import StatContainer from './StatContainer';
-import { getPercentages, getRankings } from './GenderStats';
+import { getPercentages, getRankings, getOptionStats } from './GenderStats';
 
 export default function Stats({ type, field, options }) {
   const [data, setData] = React.useState(null);
@@ -15,28 +15,42 @@ export default function Stats({ type, field, options }) {
 
     // 'view' param specifies the name of a view already created in the Airtable UI
     const getStudentItems = await table
-      .select({ fields: [field], view: '0-18' })
+      .select({ fields: [field], view: 'Student' })
       .all();
     setStudentData(minifyItems(getStudentItems));
 
     const getEducatorItems = await table
-      .select({ fields: [field], view: '18-30' })
+      .select({ fields: [field], view: 'Educator' })
       .all();
     setEducatorData(minifyItems(getEducatorItems));
 
     const getIndustryItems = await table
-      .select({ fields: [field], view: '30-60' })
+      .select({ fields: [field], view: 'Industry' })
       .all();
     setIndustryData(minifyItems(getIndustryItems));
 
     const getOtherItems = await table
-      .select({ fields: [field], view: '60+' })
+      .select({ fields: [field], view: 'OtherRole' })
       .all();
     setOtherData(minifyItems(getOtherItems));
   }, []);
 
-  const func = type === 'rank' ? getRankings : getPercentages;
-  const titlePrefix = type === 'rank' ? 'rankings' : 'results';
+  let func;
+  let titlePrefix;
+  switch (type) {
+    case 'rank':
+      func = getRankings;
+      titlePrefix = 'rankings';
+      break;
+    case 'multi':
+      func = getOptionStats;
+      titlePrefix = 'selections';
+      break;
+    default:
+      func = getPercentages;
+      titlePrefix = 'results';
+      break;
+  }
 
   return (
     <StatContainer
